@@ -16,30 +16,15 @@ namespace projektmanagementBL
         private string projectDescription { get; set; }
         private string projectOwner { get; set; }
 
-        //private Task[] tasks { get; set; }
+        private Task[] tasks { get; set; }
 
         internal Project(){}
-
-        private SqlConnection getConnection()
-        {
-            string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
-            SqlConnection conn = new SqlConnection(connString);
-            try
-            {
-                conn.Open();
-            } catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            return conn;
-            
-        }
 
         public Project(string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
         {
             this.projectID = Guid.NewGuid().ToString();
-            //create Project in DB
-            SqlConnection conn = getConnection();
+            DatabaseConnection dbConn = new DatabaseConnection();
+            SqlConnection conn = dbConn.GetConnection();
             string query = "INSERT INTO Project (projectID, projectName, projectStart, projectEnd, projectDescription, projectOwner) VALUES (@projectID, @projectName, @projectStart, @projectEnd, @projectDescription, @projectOwner)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@projectID", this.projectID);
@@ -56,7 +41,7 @@ namespace projektmanagementBL
 
         public void getAllTasks()
         {
-
+            
         }
 
 
