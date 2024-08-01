@@ -19,6 +19,17 @@ namespace projektmanagementBL
 
         internal Task() { }
 
+        public Task(string taskID, string taskName, string taskDescription, DateTime deadline, int status, string projectID, string assignedUser)
+        {
+            this.taskID = taskID;
+            this.taskName = taskName;
+            this.taskDescription = taskDescription;
+            this.deadline = deadline;
+            this.status = status;
+            this.projectID = projectID;
+            this.assignedUser = assignedUser;
+        }
+
         public Task( string taskName, string taskDescription, DateTime deadline, int status, string projectID, string assignedUser)
         {
             this.taskID = Guid.NewGuid().ToString();
