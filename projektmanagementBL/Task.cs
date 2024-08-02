@@ -29,26 +29,5 @@ namespace projektmanagementBL
             this.projectID = projectID;
             this.assignedUser = assignedUser;
         }
-
-        public Task( string taskName, string taskDescription, DateTime deadline, int status, string projectID, string assignedUser)
-        {
-            this.taskID = Guid.NewGuid().ToString();
-            DatabaseConnection dbConn = new DatabaseConnection();
-            SqlConnection conn = dbConn.GetConnection();
-            string query = "INSERT INTO Task (taskID, taskName, taskDescription, deadline, status, projectID, assignedUser) VALUES (@taskID, @taskName, @taskDescription, @deadline, @status, @projectID, @assignedUser)";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@taskID", this.taskID);
-            cmd.Parameters.AddWithValue("@taskName", taskName);
-            cmd.Parameters.AddWithValue("@taskDescription", taskDescription);
-            cmd.Parameters.AddWithValue("@deadline", deadline);
-            cmd.Parameters.AddWithValue("@status", status);
-            cmd.Parameters.AddWithValue("@projectID", projectID);
-            cmd.Parameters.AddWithValue("@assignedUser", assignedUser);
-
-            cmd.ExecuteNonQuery();
-            conn.Close();
-
-
-        }
     }
 }
