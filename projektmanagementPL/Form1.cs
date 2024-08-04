@@ -20,6 +20,11 @@ namespace projektmanagementPL
 
         private void button1_Click(object sender, EventArgs e)
         {
+            CreateProject createProject = new CreateProject();
+            this.Hide();
+            createProject.Show();
+            
+
 
         }
     }
