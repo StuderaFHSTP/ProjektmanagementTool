@@ -29,6 +29,12 @@ namespace projektmanagementPL
             //create a new project
             OrganizerPro organizerPro = new OrganizerPro();
             organizerPro.createProject(projectName, projectStart, projectEnd, projectDescription, "1");
+
+            //Ändern auf die detail seite des Projekts
+            this.Hide();
+            ProjectOverview projectOverview = new ProjectOverview();
+            projectOverview.ShowDialog();
+            this.Close();
             
         }
     }

@@ -20,7 +20,7 @@ namespace projektmanagementPL
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            //Nur zum testen aktuell
             this.Hide();
             ProjectOverview projectOverview = new ProjectOverview();
             projectOverview.ShowDialog();

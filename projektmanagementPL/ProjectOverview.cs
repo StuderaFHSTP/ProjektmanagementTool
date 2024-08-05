@@ -22,13 +22,21 @@ namespace projektmanagementPL
         {
             OrganizerPro organizerPro = new OrganizerPro();
             Project[] projects = organizerPro.viewProjects();
-            //show the project name for every project in the list
+
             foreach (Project project in projects)
             {
-                ListViewItem item = new ListViewItem(project.ProjectName);
-                listViewProjectOverview.Items.Add(item);
+                Label lblProjectName = new Label();
+                lblProjectName.Text = project.ProjectName;
+                lblProjectName.AutoSize = true;
+                lblProjectName.Margin = Padding.Empty; // Entfernt den Abstand
+
+                Button btnDetails = new Button();
+                btnDetails.Text = "Details";
+                btnDetails.Margin = Padding.Empty; // Entfernt den Abstand
+
+                tableLayoutProjectOverview.Controls.Add(lblProjectName);
+                tableLayoutProjectOverview.Controls.Add(btnDetails);
             }
-            
 
         }
 
