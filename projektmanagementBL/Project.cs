@@ -5,18 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace projektmanagementBL
 {
     public class Project
     {
-        private string projectID { get; set; }
-        private string projectName { get; set; }
-        private DateTime projectStart { get; set; }
-        private DateTime projectEnd { get; set; }
-        private string projectDescription { get; set; }
-        private string projectOwner { get; set; }
+        internal string projectID { get; set; }
+        internal string projectName { get; set; }
+        internal DateTime projectStart { get; set; }
+        internal DateTime projectEnd { get; set; }
+        internal string projectDescription { get; set; }
+        internal string projectOwner { get; set; }
 
-        private Task[] tasks { get; set; }
+        internal Task[] tasks { get; set; }
 
         internal Project(){}
 
