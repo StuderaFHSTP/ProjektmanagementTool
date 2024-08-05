@@ -31,5 +31,14 @@ namespace projektmanagementPL
             
 
         }
+
+        private void btnProjectOverviewCreate_Click(object sender, EventArgs e)
+        {
+            //close this window and open create project window
+            this.Hide();
+            CreateProject createProject = new CreateProject();
+            createProject.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.lblProjectOverviewTitle = new System.Windows.Forms.Label();
             this.listViewProjectOverview = new System.Windows.Forms.ListView();
+            this.btnProjectOverviewCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblProjectOverviewTitle
@@ -51,11 +52,22 @@
             this.listViewProjectOverview.TabIndex = 1;
             this.listViewProjectOverview.UseCompatibleStateImageBehavior = false;
             // 
+            // btnProjectOverviewCreate
+            // 
+            this.btnProjectOverviewCreate.Location = new System.Drawing.Point(637, 38);
+            this.btnProjectOverviewCreate.Name = "btnProjectOverviewCreate";
+            this.btnProjectOverviewCreate.Size = new System.Drawing.Size(81, 23);
+            this.btnProjectOverviewCreate.TabIndex = 2;
+            this.btnProjectOverviewCreate.Text = "Erstellen";
+            this.btnProjectOverviewCreate.UseVisualStyleBackColor = true;
+            this.btnProjectOverviewCreate.Click += new System.EventHandler(this.btnProjectOverviewCreate_Click);
+            // 
             // ProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 385);
+            this.Controls.Add(this.btnProjectOverviewCreate);
             this.Controls.Add(this.listViewProjectOverview);
             this.Controls.Add(this.lblProjectOverviewTitle);
             this.Name = "ProjectOverview";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Label lblProjectOverviewTitle;
         private System.Windows.Forms.ListView listViewProjectOverview;
+        private System.Windows.Forms.Button btnProjectOverviewCreate;
     }
 }
