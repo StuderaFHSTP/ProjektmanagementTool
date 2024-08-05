@@ -10,12 +10,47 @@ namespace projektmanagementBL
 {
     public class Project
     {
-        internal string projectID { get; set; }
-        internal string projectName { get; set; }
-        internal DateTime projectStart { get; set; }
-        internal DateTime projectEnd { get; set; }
-        internal string projectDescription { get; set; }
-        internal string projectOwner { get; set; }
+        private string projectID { get; set; }
+        public string ProjectID
+        {
+            get { return projectID; }
+            internal set { projectID = value; }
+        }
+
+        private string projectName { get; set; }
+        public string ProjectName
+        {
+            get { return projectName; }
+            internal set { projectName = value; }
+        }
+
+        private DateTime projectStart { get; set; }
+        public DateTime ProjectStart
+        {
+            get { return projectStart; }
+            internal set { projectStart = value; }
+        }
+
+        private DateTime projectEnd { get; set; }
+        public DateTime ProjectEnd
+        {
+            get { return projectEnd; }
+            internal set { projectEnd = value; }
+        }
+
+        private string projectDescription { get; set; }
+        public string ProjectDescription
+        {
+            get { return projectDescription; }
+            internal set { projectDescription = value; }
+        }
+
+        private string projectOwner { get; set; }
+        public string ProjectOwner
+        {
+            get { return projectOwner; }
+            internal set { projectOwner = value; }
+        }
 
         internal Task[] tasks { get; set; }
 

@@ -34,16 +34,16 @@ namespace projektmanagementBL
         public void createProject(string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
         {
             //TODO: UserID und ProjectID müssen noch dynamisch generiert werden
-            Project project = new Project("1",projectName, projectStart, projectEnd, projectDescription, projectOwner);
+            Project project = new Project("3",projectName, projectStart, projectEnd, projectDescription, projectOwner);
             SqlConnection conn = GetConnection();
             string query = "INSERT INTO Project (projectID, projectName, projectStart, projectEnd, projectDescription, projectOwner) VALUES (@projectID, @projectName, @projectStart, @projectEnd, @projectDescription, @projectOwner)";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@projectID", project.projectID);
-            cmd.Parameters.AddWithValue("@projectName", project.projectName);
-            cmd.Parameters.AddWithValue("@projectStart", project.projectStart);
-            cmd.Parameters.AddWithValue("@projectEnd", project.projectEnd);
-            cmd.Parameters.AddWithValue("@projectDescription", project.projectDescription);
-            cmd.Parameters.AddWithValue("@projectOwner", project.projectOwner);
+            cmd.Parameters.AddWithValue("@projectID", project.ProjectID);
+            cmd.Parameters.AddWithValue("@projectName", project.ProjectName);
+            cmd.Parameters.AddWithValue("@projectStart", project.ProjectStart);
+            cmd.Parameters.AddWithValue("@projectEnd", project.ProjectEnd);
+            cmd.Parameters.AddWithValue("@projectDescription", project.ProjectDescription);
+            cmd.Parameters.AddWithValue("@projectOwner", project.ProjectOwner);
             cmd.ExecuteNonQuery();
             conn.Close();   
 
@@ -59,12 +59,12 @@ namespace projektmanagementBL
             Project project = new Project();
             while (reader.Read())
             {
-                project.projectID = reader["projectID"].ToString();
-                project.projectName = reader["projectName"].ToString();
-                project.projectStart = Convert.ToDateTime(reader["projectStart"]);
-                project.projectEnd = Convert.ToDateTime(reader["projectEnd"]);
-                project.projectDescription = reader["projectDescription"].ToString();
-                project.projectOwner = reader["projectOwner"].ToString();
+                project.ProjectID = reader["projectID"].ToString();
+                project.ProjectName = reader["projectName"].ToString();
+                project.ProjectStart = Convert.ToDateTime(reader["projectStart"]);
+                project.ProjectEnd = Convert.ToDateTime(reader["projectEnd"]);
+                project.ProjectDescription = reader["projectDescription"].ToString();
+                project.ProjectOwner = reader["projectOwner"].ToString();
             }
             conn.Close();
             return project;
@@ -72,7 +72,25 @@ namespace projektmanagementBL
 
         public Project[] viewProjects()
         {
-            return null;
+            //get every project from the database and safe in array
+            SqlConnection conn = GetConnection();
+            string query = "SELECT * FROM Project";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Project> projects = new List<Project>();
+            while (reader.Read())
+            {
+                Project project = new Project();
+                project.ProjectID = reader["projectID"].ToString();
+                project.ProjectName = reader["projectName"].ToString();
+                project.ProjectStart = Convert.ToDateTime(reader["projectStart"]);
+                project.ProjectEnd = Convert.ToDateTime(reader["projectEnd"]);
+                project.ProjectDescription = reader["projectDescription"].ToString();
+                project.ProjectOwner = reader["projectOwner"].ToString();
+                projects.Add(project);
+            }
+            conn.Close();
+            return projects.ToArray();
         }
 
         public void editProject(string projectID, string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
