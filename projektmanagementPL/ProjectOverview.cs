@@ -33,6 +33,14 @@ namespace projektmanagementPL
                 Button btnDetails = new Button();
                 btnDetails.Text = "Details";
                 btnDetails.Margin = Padding.Empty; // Entfernt den Abstand
+                //button click open ProjectDetails window
+                btnDetails.Click += (s, args) =>
+                {
+                    this.Hide();
+                    ProjectDetails projectDetails = new ProjectDetails(project.ProjectID);
+                    projectDetails.ShowDialog();
+                    this.Close();
+                };
 
                 tableLayoutProjectOverview.Controls.Add(lblProjectName);
                 tableLayoutProjectOverview.Controls.Add(btnDetails);

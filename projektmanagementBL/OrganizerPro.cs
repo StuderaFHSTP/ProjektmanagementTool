@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,8 +11,11 @@ namespace projektmanagementBL
 {
     public class OrganizerPro
     {
+        //Connection String muss geändert werden abhängig von wer die Datenbank lokal speichert
+        //private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
 
-        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+
 
         public SqlConnection GetConnection()
         {
@@ -25,6 +29,80 @@ namespace projektmanagementBL
                 Console.WriteLine(e.Message);
             }
             return conn;
+        }
+
+        public User login(string email, string password)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "SELECT * FROM User WHERE email = @email AND password = @password";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@password", password);
+            SqlDataReader reader = cmd.ExecuteReader();
+            try { 
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        return new User(reader["userID"].ToString(), reader["name"].ToString(), reader["surname"].ToString(), reader["email"].ToString(), reader["role"].ToString(), reader["department"].ToString(), reader["projectID"].ToString());
+                    }
+                    return null;
+                }else
+                {
+                    return null;
+                }
+            }finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void goToRegister()
+        {
+            //TODO: Ansicht für Registrierung
+        }
+
+        public void newUser(String name, String surname, String email, String password, String role, String deparment)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "INSERT INTO User (name, surname, email, password, role, department) VALUES (@name, @surname, @email, @password, @role, @department)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@surname", surname);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@password", password);
+            cmd.Parameters.AddWithValue("@role", role);
+            cmd.Parameters.AddWithValue("@department", deparment);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void createTask(string taskName, string taskDescription, DateTime deadline, int status, string projectID, string assignedUser)
+        {
+            //TODO: UserID und ProjectID müssen noch dynamisch generiert werden
+            Task task = new Task("10", taskName, taskDescription, deadline, status, projectID, assignedUser);
+            SqlConnection conn = GetConnection();
+            string query = "INSERT INTO Task (taskID, taskName, taskDescription, deadline, status, projectID, assignedUser) VALUES (@taskID, @taskName, @taskDescription, @deadline, @status, @projectID, @assignedUser)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@taskID", task.TaskID);
+            cmd.Parameters.AddWithValue("@taskName", task.TaskName);
+            cmd.Parameters.AddWithValue("@taskDescription", task.TaskDescription);
+            cmd.Parameters.AddWithValue("@deadline", task.Deadline);
+            cmd.Parameters.AddWithValue("@status", task.Status);
+            cmd.Parameters.AddWithValue("@projectID", task.ProjectID);
+            cmd.Parameters.AddWithValue("@assignedUser", task.AssignedUser);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void showTaskDetails(string taskID)
+        {
+
+            SqlConnection conn = GetConnection();
+            string query = "SELECT * FROM Task WHERE taskID = @taskID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@taskID", taskID);
+            SqlDataReader reader = cmd.ExecuteReader();
+            //TODO : Ansicht für Task Details
         }
 
         public void newProject() { 

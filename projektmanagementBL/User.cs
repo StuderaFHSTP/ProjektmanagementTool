@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace projektmanagementBL
 {
-    internal class User
+    public class User
     {
         private String userID { get; set; }
         private String name { get; set; }
