@@ -10,7 +10,7 @@ namespace projektmanagementBL
 {
     public class OrganizerPro
     {
-
+        //Connection String muss geändert werden abhängig von wer die Datenbank lokal speichert
         private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
 
         public SqlConnection GetConnection()
