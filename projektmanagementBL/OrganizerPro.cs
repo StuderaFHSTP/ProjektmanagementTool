@@ -12,8 +12,8 @@ namespace projektmanagementBL
     public class OrganizerPro
     {
         //Connection String muss geändert werden abhängig von wer die Datenbank lokal speichert
-        //private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
-        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        //private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
 
 
 
@@ -55,6 +55,7 @@ namespace projektmanagementBL
             {
                 conn.Close();
             }
+            //Diese Methode hat bei mir einen Fehler passt es trotzdem?
         }
 
         public void goToRegister()
@@ -92,6 +93,7 @@ namespace projektmanagementBL
             cmd.Parameters.AddWithValue("@projectID", task.ProjectID);
             cmd.Parameters.AddWithValue("@assignedUser", task.AssignedUser);
             cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public void showTaskDetails(string taskID)
@@ -103,6 +105,33 @@ namespace projektmanagementBL
             cmd.Parameters.AddWithValue("@taskID", taskID);
             SqlDataReader reader = cmd.ExecuteReader();
             //TODO : Ansicht für Task Details
+        }
+
+        public void enterTaskProgress(string taskID, int status)
+        {
+
+            SqlConnection conn = GetConnection();
+            string query = "UPDATE Task SET status = @status WHERE taskID = @taskID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@taskID", taskID);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void editTask(string taskID, string taskName, string taskDescription, DateTime deadline, int status, string assignedUser)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "UPDATE Task SET taskName = @taskName, taskDescription = @taskDescription, deadline = @deadline, status = @status, assignedUser = @assignedUser WHERE taskID = @taskID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@taskID", taskID);
+            cmd.Parameters.AddWithValue("@taskName", taskName);
+            cmd.Parameters.AddWithValue("@taskDescription", taskDescription);
+            cmd.Parameters.AddWithValue("@deadline", deadline);
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@assignedUser", assignedUser);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public void newProject() { 
@@ -173,7 +202,17 @@ namespace projektmanagementBL
 
         public void editProject(string projectID, string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
         {
-
+            SqlConnection conn = GetConnection();
+            string query = "UPDATE Project SET projectName = @projectName, projectStart = @projectStart, projectEnd = @projectEnd, projectDescription = @projectDescription, projectOwner = @projectOwner WHERE projectID = @projectID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@projectID", projectID);
+            cmd.Parameters.AddWithValue("@projectName", projectName);
+            cmd.Parameters.AddWithValue("@projectStart", projectStart);
+            cmd.Parameters.AddWithValue("@projectEnd", projectEnd);
+            cmd.Parameters.AddWithValue("@projectDescription", projectDescription);
+            cmd.Parameters.AddWithValue("@projectOwner", projectOwner);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
 

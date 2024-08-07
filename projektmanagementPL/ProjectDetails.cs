@@ -24,7 +24,6 @@ namespace projektmanagementPL
         {
             OrganizerPro organizerPro = new OrganizerPro();
             Project project = organizerPro.selectProject(projectID);
-            //output Project Name in new label
             lblProjectName.Text = project.ProjectName;
 
         }
