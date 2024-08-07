@@ -68,7 +68,17 @@ namespace projektmanagementBL
 
         public void getAllTasks()
         {
-            //Get Tasks from database - erst machen wenn Tasks erstellt werden können
+            OrganizerPro organizerPro = new OrganizerPro();
+            SqlConnection conn = organizerPro.GetConnection();
+            string query = "SELECT * FROM Task WHERE projectID = @projectID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@projectID", projectID);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read()) {
+                Task task = new Task(reader["taskID"].ToString(), reader["taskName"].ToString(), reader["taskDescription"].ToString(), Convert.ToDateTime(reader["deadline"]), Convert.ToInt32(reader["status"]), reader["projectID"].ToString(), reader["assignedUser"].ToString());
+                tasks.Append(task);
+            }
+            conn.Close();
         }
 
 
