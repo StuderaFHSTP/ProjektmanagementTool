@@ -25,6 +25,11 @@ namespace projektmanagementPL
             OrganizerPro organizerPro = new OrganizerPro();
             Project project = organizerPro.selectProject(projectID);
             lblProjectName.Text = project.ProjectName;
+            lblProjectDetailsStartTime.Text = project.ProjectStart.ToString("dd.MM.yyyy");
+            lblProjectDetailEndTime.Text = project.ProjectEnd.ToString("dd.MM.yyyy");
+            lblProjectDetailSetOwner.Text = project.getProjectOwnerName();
+            txtProjectDetailsSetDescription.Text = project.ProjectDescription;
+            //TODO: Tasks anzeigen
 
         }
     }

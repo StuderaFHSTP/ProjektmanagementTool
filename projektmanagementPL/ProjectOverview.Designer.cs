@@ -75,6 +75,7 @@
             this.Controls.Add(this.tableLayoutProjectOverview);
             this.Controls.Add(this.btnProjectOverviewCreate);
             this.Controls.Add(this.lblProjectOverviewTitle);
+            this.MaximizeBox = false;
             this.Name = "ProjectOverview";
             this.Text = "ProjectOverview";
             this.Load += new System.EventHandler(this.ProjectOverview_Load);
