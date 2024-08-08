@@ -32,5 +32,53 @@ namespace projektmanagementPL
             //TODO: Tasks anzeigen
 
         }
+
+        private void btnProjectDetailsEdit_Click(object sender, EventArgs e)
+        {
+            //TODO: Checken ob der User der Owner ist
+            
+            lblProjectName.Visible = false;
+            txtEditprojectName.Visible = true;
+            txtEditprojectName.Text = lblProjectName.Text;
+
+            lblProjectDetailsStartTime.Visible = false;
+            datePickerProjectStart.Visible = true;
+            datePickerProjectStart.Value = DateTime.Parse(lblProjectDetailsStartTime.Text);
+
+            lblProjectDetailEndTime.Visible = false;
+            datePickerProjectEnd.Visible = true;
+            datePickerProjectEnd.Value = DateTime.Parse(lblProjectDetailEndTime.Text);
+
+            txtProjectDetailsSetDescription.ReadOnly = false;
+
+            btnProjectDetailsEdit.Visible = false;
+            btnProjectDetailSave.Visible = true;
+
+        }
+
+        private void btnProjectDetailSave_Click(object sender, EventArgs e)
+        {
+            OrganizerPro organizerPro = new OrganizerPro();
+            organizerPro.editProject(projectID, txtEditprojectName.Text, datePickerProjectStart.Value, datePickerProjectEnd.Value, txtProjectDetailsSetDescription.Text);
+
+            ProjectDetails_Load(sender, e);
+
+            lblProjectName.Visible = true;
+            txtEditprojectName.Visible = false;
+
+            lblProjectDetailsStartTime.Visible = true;
+            datePickerProjectStart.Visible = false;
+
+            lblProjectDetailEndTime.Visible = true;
+            datePickerProjectEnd.Visible = false;
+
+            txtProjectDetailsSetDescription.ReadOnly = true;
+
+            btnProjectDetailsEdit.Visible = false;
+            btnProjectDetailSave.Visible = true;
+
+            btnProjectDetailSave.Visible = false;
+            btnProjectDetailsEdit.Visible = true;
+        }
     }
 }

@@ -37,6 +37,11 @@
             this.lblProjectDetailSetOwner = new System.Windows.Forms.Label();
             this.lblProjectDetailsDescription = new System.Windows.Forms.Label();
             this.txtProjectDetailsSetDescription = new System.Windows.Forms.RichTextBox();
+            this.btnProjectDetailsEdit = new System.Windows.Forms.Button();
+            this.txtEditprojectName = new System.Windows.Forms.TextBox();
+            this.datePickerProjectStart = new System.Windows.Forms.DateTimePicker();
+            this.datePickerProjectEnd = new System.Windows.Forms.DateTimePicker();
+            this.btnProjectDetailSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblProjectName
@@ -129,11 +134,62 @@
             this.txtProjectDetailsSetDescription.TabIndex = 8;
             this.txtProjectDetailsSetDescription.Text = "";
             // 
+            // btnProjectDetailsEdit
+            // 
+            this.btnProjectDetailsEdit.Location = new System.Drawing.Point(537, 29);
+            this.btnProjectDetailsEdit.Name = "btnProjectDetailsEdit";
+            this.btnProjectDetailsEdit.Size = new System.Drawing.Size(92, 23);
+            this.btnProjectDetailsEdit.TabIndex = 9;
+            this.btnProjectDetailsEdit.Text = "Bearbeiten";
+            this.btnProjectDetailsEdit.UseVisualStyleBackColor = true;
+            this.btnProjectDetailsEdit.Click += new System.EventHandler(this.btnProjectDetailsEdit_Click);
+            // 
+            // txtEditprojectName
+            // 
+            this.txtEditprojectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditprojectName.Location = new System.Drawing.Point(42, 29);
+            this.txtEditprojectName.Name = "txtEditprojectName";
+            this.txtEditprojectName.Size = new System.Drawing.Size(290, 27);
+            this.txtEditprojectName.TabIndex = 10;
+            this.txtEditprojectName.Visible = false;
+            // 
+            // datePickerProjectStart
+            // 
+            this.datePickerProjectStart.Location = new System.Drawing.Point(165, 79);
+            this.datePickerProjectStart.Name = "datePickerProjectStart";
+            this.datePickerProjectStart.Size = new System.Drawing.Size(141, 22);
+            this.datePickerProjectStart.TabIndex = 11;
+            this.datePickerProjectStart.Visible = false;
+            // 
+            // datePickerProjectEnd
+            // 
+            this.datePickerProjectEnd.Location = new System.Drawing.Point(467, 79);
+            this.datePickerProjectEnd.Name = "datePickerProjectEnd";
+            this.datePickerProjectEnd.Size = new System.Drawing.Size(140, 22);
+            this.datePickerProjectEnd.TabIndex = 12;
+            this.datePickerProjectEnd.Visible = false;
+            // 
+            // btnProjectDetailSave
+            // 
+            this.btnProjectDetailSave.Location = new System.Drawing.Point(537, 29);
+            this.btnProjectDetailSave.Name = "btnProjectDetailSave";
+            this.btnProjectDetailSave.Size = new System.Drawing.Size(92, 32);
+            this.btnProjectDetailSave.TabIndex = 13;
+            this.btnProjectDetailSave.Text = "Speichern";
+            this.btnProjectDetailSave.UseVisualStyleBackColor = true;
+            this.btnProjectDetailSave.Visible = false;
+            this.btnProjectDetailSave.Click += new System.EventHandler(this.btnProjectDetailSave_Click);
+            // 
             // ProjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 506);
+            this.Controls.Add(this.btnProjectDetailSave);
+            this.Controls.Add(this.datePickerProjectEnd);
+            this.Controls.Add(this.datePickerProjectStart);
+            this.Controls.Add(this.txtEditprojectName);
+            this.Controls.Add(this.btnProjectDetailsEdit);
             this.Controls.Add(this.txtProjectDetailsSetDescription);
             this.Controls.Add(this.lblProjectDetailsDescription);
             this.Controls.Add(this.lblProjectDetailSetOwner);
@@ -163,5 +219,10 @@
         private System.Windows.Forms.Label lblProjectDetailSetOwner;
         private System.Windows.Forms.Label lblProjectDetailsDescription;
         private System.Windows.Forms.RichTextBox txtProjectDetailsSetDescription;
+        private System.Windows.Forms.Button btnProjectDetailsEdit;
+        private System.Windows.Forms.TextBox txtEditprojectName;
+        private System.Windows.Forms.DateTimePicker datePickerProjectStart;
+        private System.Windows.Forms.DateTimePicker datePickerProjectEnd;
+        private System.Windows.Forms.Button btnProjectDetailSave;
     }
 }

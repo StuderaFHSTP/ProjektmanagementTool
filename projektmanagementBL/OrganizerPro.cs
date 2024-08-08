@@ -201,17 +201,16 @@ namespace projektmanagementBL
             return projects.ToArray();
         }
 
-        public void editProject(string projectID, string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
+        public void editProject(string projectID, string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription)
         {
             SqlConnection conn = GetConnection();
-            string query = "UPDATE Project SET projectName = @projectName, projectStart = @projectStart, projectEnd = @projectEnd, projectDescription = @projectDescription, projectOwner = @projectOwner WHERE projectID = @projectID";
+            string query = "UPDATE Project SET projectName = @projectName, projectStart = @projectStart, projectEnd = @projectEnd, projectDescription = @projectDescription WHERE projectID = @projectID";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@projectID", projectID);
             cmd.Parameters.AddWithValue("@projectName", projectName);
             cmd.Parameters.AddWithValue("@projectStart", projectStart);
             cmd.Parameters.AddWithValue("@projectEnd", projectEnd);
             cmd.Parameters.AddWithValue("@projectDescription", projectDescription);
-            cmd.Parameters.AddWithValue("@projectOwner", projectOwner);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
