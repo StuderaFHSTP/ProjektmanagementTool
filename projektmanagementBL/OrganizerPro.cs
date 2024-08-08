@@ -140,8 +140,9 @@ namespace projektmanagementBL
 
         public void createProject(string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
         {
-            //TODO: UserID und ProjectID müssen noch dynamisch generiert werden
-            Project project = new Project("4",projectName, projectStart, projectEnd, projectDescription, projectOwner);
+            //TODO: UserID müssen noch dynamisch generiert werden
+            string projectID = Guid.NewGuid().ToString("N").Substring(0,30);
+            Project project = new Project(projectID,projectName, projectStart, projectEnd, projectDescription, projectOwner);
             SqlConnection conn = GetConnection();
             string query = "INSERT INTO Project (projectID, projectName, projectStart, projectEnd, projectDescription, projectOwner) VALUES (@projectID, @projectName, @projectStart, @projectEnd, @projectDescription, @projectOwner)";
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -179,7 +180,7 @@ namespace projektmanagementBL
 
         public Project[] viewProjects()
         {
-            //get every project from the database and safe in array
+            
             SqlConnection conn = GetConnection();
             string query = "SELECT * FROM Project";
             SqlCommand cmd = new SqlCommand(query, conn);

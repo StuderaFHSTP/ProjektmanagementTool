@@ -26,7 +26,7 @@ namespace projektmanagementPL
             DateTime projectEnd = dateEnd.Value;
             string projectDescription = txtProjectBeschreibung.Text;
 
-            //create a new project
+            //TODO ProjectOwnerID aus der Session holen
             OrganizerPro organizerPro = new OrganizerPro();
             organizerPro.createProject(projectName, projectStart, projectEnd, projectDescription, "1");
 
@@ -36,6 +36,11 @@ namespace projektmanagementPL
             projectOverview.ShowDialog();
             this.Close();
             
+        }
+
+        private void CreateProject_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

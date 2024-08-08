@@ -144,6 +144,7 @@
             this.MinimizeBox = false;
             this.Name = "CreateProject";
             this.Text = "CreateProject";
+            this.Load += new System.EventHandler(this.CreateProject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
