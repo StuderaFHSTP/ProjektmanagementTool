@@ -65,7 +65,7 @@ namespace projektmanagementBL
 
         public bool newUser(String name, String surname, String email, String password, String role, String deparment)
         {
-            string userID = Guid.NewGuid().ToString();
+            string userID = Guid.NewGuid().ToString("N").Substring(0, 30);
             try
             {
                 SqlConnection conn = GetConnection();
