@@ -12,8 +12,8 @@ namespace projektmanagementBL
     public class OrganizerPro
     {
         //Connection String muss geändert werden abhängig von wer die Datenbank lokal speichert
-        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
-        //private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        //private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
 
 
 
@@ -34,7 +34,7 @@ namespace projektmanagementBL
         public User login(string email, string password)
         {
             SqlConnection conn = GetConnection();
-            string query = "SELECT * FROM User WHERE email = @email AND password = @password";
+            string query = "SELECT * FROM [User] WHERE email = @email AND password = @password";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@password", password);
@@ -63,19 +63,31 @@ namespace projektmanagementBL
             //TODO: Ansicht für Registrierung
         }
 
-        public void newUser(String name, String surname, String email, String password, String role, String deparment)
+        public bool newUser(String name, String surname, String email, String password, String role, String deparment)
         {
-            SqlConnection conn = GetConnection();
-            string query = "INSERT INTO User (name, surname, email, password, role, department) VALUES (@name, @surname, @email, @password, @role, @department)";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@surname", surname);
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@password", password);
-            cmd.Parameters.AddWithValue("@role", role);
-            cmd.Parameters.AddWithValue("@department", deparment);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            string userID = Guid.NewGuid().ToString();
+            try
+            {
+                SqlConnection conn = GetConnection();
+                string query = "INSERT INTO [User] (userID, name, surname, email, password, role, department) VALUES (@userID, @name, @surname, @email, @password, @role, @department)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@userID", userID);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@surname", surname);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@role", role);
+                cmd.Parameters.AddWithValue("@department", deparment);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            
         }
 
         public void createTask(string taskName, string taskDescription, DateTime deadline, int status, string projectID, string assignedUser)

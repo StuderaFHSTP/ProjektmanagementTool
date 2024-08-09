@@ -22,8 +22,13 @@ namespace projektmanagementPL
         {
             //Nur zum testen aktuell
             this.Hide();
-            ProjectOverview projectOverview = new ProjectOverview();
-            projectOverview.ShowDialog();
+
+            //ProjectOverview projectOverview = new ProjectOverview();
+            //projectOverview.ShowDialog();
+
+            Login login = new Login();
+            login.ShowDialog();
+            
             this.Close();
             
 
