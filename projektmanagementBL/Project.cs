@@ -52,7 +52,12 @@ namespace projektmanagementBL
             internal set { projectOwner = value; }
         }
 
-        internal Task[] tasks { get; set; }
+        private List<Task> tasks { get; set; } = new List<Task>();
+        public List<Task> Tasks
+        {
+            get { return tasks; }
+            internal set { tasks = value; }
+        }
 
         internal Project(){}
 
@@ -66,6 +71,7 @@ namespace projektmanagementBL
             this.projectOwner = projectOwner;
         }
 
+
         public void getAllTasks()
         {
             OrganizerPro organizerPro = new OrganizerPro();
@@ -74,12 +80,15 @@ namespace projektmanagementBL
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@projectID", projectID);
             SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 Task task = new Task(reader["taskID"].ToString(), reader["taskName"].ToString(), reader["taskDescription"].ToString(), Convert.ToDateTime(reader["deadline"]), Convert.ToInt32(reader["status"]), reader["projectID"].ToString(), reader["assignedUser"].ToString());
-                tasks.Append(task);
+                tasks.Add(task);
             }
             conn.Close();
         }
+
+
 
         public string getProjectOwnerName()
         {

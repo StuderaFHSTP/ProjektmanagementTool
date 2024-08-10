@@ -42,6 +42,9 @@
             this.datePickerProjectStart = new System.Windows.Forms.DateTimePicker();
             this.datePickerProjectEnd = new System.Windows.Forms.DateTimePicker();
             this.btnProjectDetailSave = new System.Windows.Forms.Button();
+            this.tableLayoutProjectDetails = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTasks = new System.Windows.Forms.Label();
+            this.btnCreateTask = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblProjectName
@@ -180,11 +183,50 @@
             this.btnProjectDetailSave.Visible = false;
             this.btnProjectDetailSave.Click += new System.EventHandler(this.btnProjectDetailSave_Click);
             // 
+            // tableLayoutProjectDetails
+            // 
+            this.tableLayoutProjectDetails.ColumnCount = 3;
+            this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutProjectDetails.Location = new System.Drawing.Point(42, 299);
+            this.tableLayoutProjectDetails.Name = "tableLayoutProjectDetails";
+            this.tableLayoutProjectDetails.RowCount = 2;
+            this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutProjectDetails.Size = new System.Drawing.Size(290, 176);
+            this.tableLayoutProjectDetails.TabIndex = 14;
+            // 
+            // lblTasks
+            // 
+            this.lblTasks.AutoSize = true;
+            this.lblTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTasks.Location = new System.Drawing.Point(42, 260);
+            this.lblTasks.Name = "lblTasks";
+            this.lblTasks.Size = new System.Drawing.Size(59, 20);
+            this.lblTasks.TabIndex = 15;
+            this.lblTasks.Text = "Tasks:";
+            // 
+            // btnCreateTask
+            // 
+            this.btnCreateTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateTask.Location = new System.Drawing.Point(127, 260);
+            this.btnCreateTask.Name = "btnCreateTask";
+            this.btnCreateTask.Size = new System.Drawing.Size(115, 23);
+            this.btnCreateTask.TabIndex = 16;
+            this.btnCreateTask.Text = "Task erstellen";
+            this.btnCreateTask.UseVisualStyleBackColor = true;
+            this.btnCreateTask.Click += new System.EventHandler(this.btnCreateTask_Click);
+            // 
             // ProjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 506);
+            this.Controls.Add(this.btnCreateTask);
+            this.Controls.Add(this.lblTasks);
+            this.Controls.Add(this.tableLayoutProjectDetails);
             this.Controls.Add(this.btnProjectDetailSave);
             this.Controls.Add(this.datePickerProjectEnd);
             this.Controls.Add(this.datePickerProjectStart);
@@ -224,5 +266,8 @@
         private System.Windows.Forms.DateTimePicker datePickerProjectStart;
         private System.Windows.Forms.DateTimePicker datePickerProjectEnd;
         private System.Windows.Forms.Button btnProjectDetailSave;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutProjectDetails;
+        private System.Windows.Forms.Label lblTasks;
+        private System.Windows.Forms.Button btnCreateTask;
     }
 }

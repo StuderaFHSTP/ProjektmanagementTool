@@ -24,9 +24,11 @@ namespace projektmanagementPL
 
         private void ProjectDetails_Load(object sender, EventArgs e)
         {
-            if(loggedInUser.Role != "Projektleiter")
+            if (loggedInUser.Role != "Projektleiter")
             {
                 btnProjectDetailsEdit.Visible = false;
+                btnProjectDetailSave.Visible = false;
+                btnCreateTask.Visible = false;
             }
             OrganizerPro organizerPro = new OrganizerPro();
             Project project = organizerPro.selectProject(projectID);
@@ -36,12 +38,29 @@ namespace projektmanagementPL
             lblProjectDetailSetOwner.Text = project.getProjectOwnerName();
             txtProjectDetailsSetDescription.Text = project.ProjectDescription;
             //TODO: Tasks anzeigen
-
+            project.getAllTasks();
+            foreach (projektmanagementBL.Task task in project.Tasks)
+            {
+                Label taskName = new Label();
+                taskName.Text = task.TaskName;
+                taskName.AutoSize = true;
+                taskName.Margin = Padding.Empty;
+                Label deadline = new Label();
+                deadline.Text = task.Deadline.ToString("dd.MM.yyyy");
+                deadline.AutoSize = true;
+                deadline.Margin = Padding.Empty;
+                Button details = new Button();
+                details.Text = "Details";
+                details.Margin = Padding.Empty;
+                tableLayoutProjectDetails.Controls.Add(taskName);
+                tableLayoutProjectDetails.Controls.Add(deadline);
+                tableLayoutProjectDetails.Controls.Add(details);
+            }
         }
+
 
         private void btnProjectDetailsEdit_Click(object sender, EventArgs e)
         {
-            //TODO: Checken ob der User der Owner ist
             
             lblProjectName.Visible = false;
             txtEditprojectName.Visible = true;
@@ -85,6 +104,14 @@ namespace projektmanagementPL
 
             btnProjectDetailSave.Visible = false;
             btnProjectDetailsEdit.Visible = true;
+        }
+
+        private void btnCreateTask_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CreateTask createTask = new CreateTask(projectID, loggedInUser);
+            createTask.ShowDialog();
+            this.Close();
         }
     }
 }

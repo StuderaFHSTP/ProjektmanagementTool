@@ -30,7 +30,6 @@ namespace projektmanagementPL
             OrganizerPro organizerPro = new OrganizerPro();
             string projectID = organizerPro.createProject(projectName, projectStart, projectEnd, projectDescription, loggedInUser.UserID);
 
-            //Ändern auf die detail seite des Projekts
             this.Hide();
             ProjectDetails projectDetails = new ProjectDetails(projectID, loggedInUser);
             projectDetails.ShowDialog();

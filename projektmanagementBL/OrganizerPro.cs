@@ -89,10 +89,26 @@ namespace projektmanagementBL
             
         }
 
+        public string getUserID(string surname)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "SELECT userID FROM [User] WHERE surname = @surname";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@surname", surname);
+            SqlDataReader reader = cmd.ExecuteReader();
+            string userID = "";
+            while (reader.Read())
+            {
+                userID = reader["userID"].ToString();
+            }
+            conn.Close();
+            return userID;
+        }
+
         public void createTask(string taskName, string taskDescription, DateTime deadline, int status, string projectID, string assignedUser)
         {
-            //TODO: UserID und ProjectID müssen noch dynamisch generiert werden
-            Task task = new Task("10", taskName, taskDescription, deadline, status, projectID, assignedUser);
+            string taskID = Guid.NewGuid().ToString("N").Substring(0, 30);
+            Task task = new Task(taskID, taskName, taskDescription, deadline, status, projectID, assignedUser);
             SqlConnection conn = GetConnection();
             string query = "INSERT INTO Task (taskID, taskName, taskDescription, deadline, status, projectID, assignedUser) VALUES (@taskID, @taskName, @taskDescription, @deadline, @status, @projectID, @assignedUser)";
             SqlCommand cmd = new SqlCommand(query, conn);
