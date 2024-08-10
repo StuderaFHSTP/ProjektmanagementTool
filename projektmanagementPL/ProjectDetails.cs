@@ -24,20 +24,20 @@ namespace projektmanagementPL
 
         private void ProjectDetails_Load(object sender, EventArgs e)
         {
-            if (loggedInUser.Role != "Projektleiter")
-            {
-                btnProjectDetailsEdit.Visible = false;
-                btnProjectDetailSave.Visible = false;
-                btnCreateTask.Visible = false;
-            }
             OrganizerPro organizerPro = new OrganizerPro();
             Project project = organizerPro.selectProject(projectID);
+            if(project.ProjectOwner != loggedInUser.UserID)
+            {
+                btnCreateTask.Visible = false;
+                btnProjectDetailsEdit.Visible = false;
+                btnCreateTask.Visible = false;
+            }
             lblProjectName.Text = project.ProjectName;
             lblProjectDetailsStartTime.Text = project.ProjectStart.ToString("dd.MM.yyyy");
             lblProjectDetailEndTime.Text = project.ProjectEnd.ToString("dd.MM.yyyy");
             lblProjectDetailSetOwner.Text = project.getProjectOwnerName();
             txtProjectDetailsSetDescription.Text = project.ProjectDescription;
-            //TODO: Tasks anzeigen
+
             project.getAllTasks();
             foreach (projektmanagementBL.Task task in project.Tasks)
             {
