@@ -13,9 +13,11 @@ namespace projektmanagementPL
 {
     public partial class CreateProject : Form
     {
-        public CreateProject()
+        private User loggedInUser;
+        public CreateProject(User loggedInUser)
         {
             InitializeComponent();
+            this.loggedInUser = loggedInUser;
         }
 
         private void btnProjectErstellen_Click(object sender, EventArgs e)
@@ -28,11 +30,11 @@ namespace projektmanagementPL
 
             //TODO ProjectOwnerID aus der Session holen
             OrganizerPro organizerPro = new OrganizerPro();
-            organizerPro.createProject(projectName, projectStart, projectEnd, projectDescription, "1");
+            organizerPro.createProject(projectName, projectStart, projectEnd, projectDescription, loggedInUser.UserID);
 
             //Ändern auf die detail seite des Projekts
             this.Hide();
-            ProjectOverview projectOverview = new ProjectOverview();
+            ProjectOverview projectOverview = new ProjectOverview(loggedInUser);
             projectOverview.ShowDialog();
             this.Close();
             

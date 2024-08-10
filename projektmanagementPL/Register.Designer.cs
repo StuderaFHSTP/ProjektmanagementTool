@@ -140,6 +140,12 @@
             // ddAbteilung
             // 
             this.ddAbteilung.FormattingEnabled = true;
+            this.ddAbteilung.Items.AddRange(new object[] {
+            "Development",
+            "Design",
+            "Usability",
+            "Testing",
+            "Support"});
             this.ddAbteilung.Location = new System.Drawing.Point(353, 201);
             this.ddAbteilung.Name = "ddAbteilung";
             this.ddAbteilung.Size = new System.Drawing.Size(171, 24);
@@ -148,6 +154,9 @@
             // ddRolle
             // 
             this.ddRolle.FormattingEnabled = true;
+            this.ddRolle.Items.AddRange(new object[] {
+            "Projektleiter",
+            "Mitarbeiter"});
             this.ddRolle.Location = new System.Drawing.Point(353, 231);
             this.ddRolle.Name = "ddRolle";
             this.ddRolle.Size = new System.Drawing.Size(171, 24);
@@ -159,7 +168,7 @@
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(178, 31);
             this.btnRegister.TabIndex = 7;
-            this.btnRegister.Text = "registrieren";
+            this.btnRegister.Text = "Registrieren";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 

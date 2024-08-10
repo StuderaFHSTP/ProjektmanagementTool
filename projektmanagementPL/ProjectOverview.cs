@@ -13,9 +13,11 @@ namespace projektmanagementPL
 {
     public partial class ProjectOverview : Form
     {
-        public ProjectOverview()
+        private User loggedInUser;
+        public ProjectOverview(User loggedInUser)
         {
             InitializeComponent();
+            this.loggedInUser = loggedInUser;
         }
 
         private void ProjectOverview_Load(object sender, EventArgs e)
@@ -50,9 +52,8 @@ namespace projektmanagementPL
 
         private void btnProjectOverviewCreate_Click(object sender, EventArgs e)
         {
-            //close this window and open create project window
             this.Hide();
-            CreateProject createProject = new CreateProject();
+            CreateProject createProject = new CreateProject(loggedInUser);
             createProject.ShowDialog();
             this.Close();
         }

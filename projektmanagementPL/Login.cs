@@ -28,10 +28,11 @@ namespace projektmanagementPL
             OrganizerPro organizerPro = new OrganizerPro();
             User user=organizerPro.login(email,password);
 
+
             if(user!=null) {
                 //Ändern auf die detail seite des Projekts
                 this.Hide();
-                ProjectOverview projectOverview = new ProjectOverview();
+                ProjectOverview projectOverview = new ProjectOverview(user);
                 projectOverview.ShowDialog();
                 this.Close();
 

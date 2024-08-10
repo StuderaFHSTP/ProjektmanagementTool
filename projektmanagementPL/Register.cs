@@ -33,12 +33,14 @@ namespace projektmanagementPL
             OrganizerPro organizerPro = new OrganizerPro();
 
             bool createdUser=organizerPro.newUser(name, surname, email, password, department, role);
+            
 
             //Ändern auf die detail seite des Projekts
             if(createdUser)
             {
+                User user = organizerPro.login(email, password);
                 this.Hide();
-                ProjectOverview projectOverview = new ProjectOverview();
+                ProjectOverview projectOverview = new ProjectOverview(user);
                 projectOverview.ShowDialog();
                 this.Close();
             }else
