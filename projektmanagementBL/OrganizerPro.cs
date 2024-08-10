@@ -149,9 +149,8 @@ namespace projektmanagementBL
             //TODO: Ansicht für erstellen eines neuen Projekts
         }
 
-        public void createProject(string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
+        public string createProject(string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
         {
-            //TODO: UserID müssen noch dynamisch generiert werden
             string projectID = Guid.NewGuid().ToString("N").Substring(0,30);
             Project project = new Project(projectID,projectName, projectStart, projectEnd, projectDescription, projectOwner);
             SqlConnection conn = GetConnection();
@@ -165,6 +164,7 @@ namespace projektmanagementBL
             cmd.Parameters.AddWithValue("@projectOwner", project.ProjectOwner);
             cmd.ExecuteNonQuery();
             conn.Close();   
+            return projectID;
 
         }
 

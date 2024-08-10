@@ -34,12 +34,11 @@ namespace projektmanagementPL
                 Label lblProjectName = new Label();
                 lblProjectName.Text = project.ProjectName;
                 lblProjectName.AutoSize = true;
-                lblProjectName.Margin = Padding.Empty; // Entfernt den Abstand
+                lblProjectName.Margin = Padding.Empty;
 
                 Button btnDetails = new Button();
                 btnDetails.Text = "Details";
-                btnDetails.Margin = Padding.Empty; // Entfernt den Abstand
-                //button click open ProjectDetails window
+                btnDetails.Margin = Padding.Empty; 
                 btnDetails.Click += (s, args) =>
                 {
                     this.Hide();
