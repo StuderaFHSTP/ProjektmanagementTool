@@ -14,14 +14,20 @@ namespace projektmanagementPL
     public partial class ProjectDetails : Form
     {
         private string projectID;
-        public ProjectDetails(string projectID)
+        private User loggedInUser;
+        public ProjectDetails(string projectID, User loggedInUser)
         {
             InitializeComponent();
             this.projectID = projectID;
+            this.loggedInUser = loggedInUser;
         }
 
         private void ProjectDetails_Load(object sender, EventArgs e)
         {
+            if(loggedInUser.Role != "Projektleiter")
+            {
+                btnProjectDetailsEdit.Visible = false;
+            }
             OrganizerPro organizerPro = new OrganizerPro();
             Project project = organizerPro.selectProject(projectID);
             lblProjectName.Text = project.ProjectName;

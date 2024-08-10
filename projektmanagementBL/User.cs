@@ -8,44 +8,44 @@ namespace projektmanagementBL
 {
     public class User
     {
-        private String userID { get; set; }
+        private string userID { get; set; }
         public string UserID
         {
             get { return userID; }
             internal set { userID = value; }
         }
-        private String name { get; set; }
-        public String Name
+        private string name { get; set; }
+        public string Name
         {
             get { return name; }
             internal set { name = value; }
         }
-        private String surname { get; set; }
-        public String Surname
+        private string surname { get; set; }
+        public string Surname
         {
             get { return surname; }
             internal set { surname = value; }
         }
-        private String email { get; set; }
-        public String Email
+        private string email { get; set; }
+        public string Email
         {
             get { return email; }
             internal set { email = value; }
         }
-        private String role { get; set; }
-        public String Role
+        private string role { get; set; }
+        public string Role
         {
             get { return role; }
             internal set { role = value; }
         }
-        private String department { get; set; }
-        public String Department
+        private string department { get; set; }
+        public string Department
         {
             get { return department; }
             internal set { department = value; }
         }
-        private String projectID { get; set; }
-        public String ProjectID
+        private string projectID { get; set; }
+        public string ProjectID
         {
             get { return projectID; }
             internal set { projectID = value; }

@@ -22,13 +22,11 @@ namespace projektmanagementPL
 
         private void btnProjectErstellen_Click(object sender, EventArgs e)
         {
-            //get all the data from the form
             string projectName = txtProjectName.Text;
             DateTime projectStart = dateStart.Value;
             DateTime projectEnd = dateEnd.Value;
             string projectDescription = txtProjectBeschreibung.Text;
 
-            //TODO ProjectOwnerID aus der Session holen
             OrganizerPro organizerPro = new OrganizerPro();
             organizerPro.createProject(projectName, projectStart, projectEnd, projectDescription, loggedInUser.UserID);
 

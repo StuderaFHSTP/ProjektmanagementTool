@@ -22,6 +22,10 @@ namespace projektmanagementPL
 
         private void ProjectOverview_Load(object sender, EventArgs e)
         {
+            if (loggedInUser.Role != "Projektleiter")
+            {
+                btnProjectOverviewCreate.Visible = false;
+            }
             OrganizerPro organizerPro = new OrganizerPro();
             Project[] projects = organizerPro.viewProjects();
 
@@ -39,7 +43,7 @@ namespace projektmanagementPL
                 btnDetails.Click += (s, args) =>
                 {
                     this.Hide();
-                    ProjectDetails projectDetails = new ProjectDetails(project.ProjectID);
+                    ProjectDetails projectDetails = new ProjectDetails(project.ProjectID, loggedInUser);
                     projectDetails.ShowDialog();
                     this.Close();
                 };

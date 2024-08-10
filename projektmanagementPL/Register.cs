@@ -32,7 +32,7 @@ namespace projektmanagementPL
             //TODO ProjectOwnerID aus der Session holen
             OrganizerPro organizerPro = new OrganizerPro();
 
-            bool createdUser=organizerPro.newUser(name, surname, email, password, department, role);
+            bool createdUser=organizerPro.newUser(name, surname, email, password, role, department);
             
 
             //Ändern auf die detail seite des Projekts
