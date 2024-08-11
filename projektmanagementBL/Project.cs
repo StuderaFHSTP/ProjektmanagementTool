@@ -89,7 +89,6 @@ namespace projektmanagementBL
         }
 
 
-
         public string getProjectOwnerName()
         {
             OrganizerPro organizerPro = new OrganizerPro();

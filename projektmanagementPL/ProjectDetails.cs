@@ -49,13 +49,31 @@ namespace projektmanagementPL
                 deadline.Text = task.Deadline.ToString("dd.MM.yyyy");
                 deadline.AutoSize = true;
                 deadline.Margin = Padding.Empty;
+                Label assignedUser = new Label();
+                assignedUser.Text = task.getTaskAssignedUserName();
+                assignedUser.AutoSize = true;
+                assignedUser.Margin = Padding.Empty;
                 Button details = new Button();
                 details.Text = "Details";
                 details.Margin = Padding.Empty;
+                Button edit = new Button();
+                edit.Text = "Bearbeiten";
+                edit.Margin = Padding.Empty;
+                if (project.ProjectOwner == loggedInUser.UserID)
+                {
+                    edit.Visible = true;
+                    tableLayoutProjectDetails.ColumnCount = 5;
+                } else {
+                    edit.Visible = false;
+                }
                 tableLayoutProjectDetails.Controls.Add(taskName);
                 tableLayoutProjectDetails.Controls.Add(deadline);
+                tableLayoutProjectDetails.Controls.Add(assignedUser);
                 tableLayoutProjectDetails.Controls.Add(details);
+                tableLayoutProjectDetails.Controls.Add(edit);
             }
+            //TODO: Task details anzeigen
+            //TODO: Task editieren
         }
 
 

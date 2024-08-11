@@ -64,5 +64,20 @@ namespace projektmanagementBL
             this.projectID = projectID;
             this.assignedUser = assignedUser;
         }
+
+        public string getTaskAssignedUserName()
+        {
+            OrganizerPro organizerPro = new OrganizerPro();
+            SqlConnection conn = organizerPro.GetConnection();
+            string query = "SELECT * FROM [User] WHERE userID = @userID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@userID", assignedUser);
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            string assignedUserName = reader["name"].ToString() + " " +reader["surname"].ToString();
+            conn.Close();
+            return assignedUserName;
+            
+        }
     }
 }

@@ -185,7 +185,9 @@
             // 
             // tableLayoutProjectDetails
             // 
-            this.tableLayoutProjectDetails.ColumnCount = 3;
+            this.tableLayoutProjectDetails.ColumnCount = 4;
+            this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -194,8 +196,7 @@
             this.tableLayoutProjectDetails.RowCount = 2;
             this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutProjectDetails.Size = new System.Drawing.Size(290, 176);
+            this.tableLayoutProjectDetails.Size = new System.Drawing.Size(587, 176);
             this.tableLayoutProjectDetails.TabIndex = 14;
             // 
             // lblTasks

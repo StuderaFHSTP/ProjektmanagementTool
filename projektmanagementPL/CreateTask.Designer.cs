@@ -63,7 +63,7 @@
             // 
             this.txtTaskName.Location = new System.Drawing.Point(136, 65);
             this.txtTaskName.Name = "txtTaskName";
-            this.txtTaskName.Size = new System.Drawing.Size(100, 22);
+            this.txtTaskName.Size = new System.Drawing.Size(243, 22);
             this.txtTaskName.TabIndex = 2;
             // 
             // lblDeadline
@@ -95,7 +95,7 @@
             // 
             this.txtAssignedUser.Location = new System.Drawing.Point(202, 138);
             this.txtAssignedUser.Name = "txtAssignedUser";
-            this.txtAssignedUser.Size = new System.Drawing.Size(100, 22);
+            this.txtAssignedUser.Size = new System.Drawing.Size(177, 22);
             this.txtAssignedUser.TabIndex = 6;
             // 
             // lblTaskDescription

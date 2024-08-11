@@ -132,6 +132,7 @@ namespace projektmanagementBL
             cmd.Parameters.AddWithValue("@taskID", taskID);
             SqlDataReader reader = cmd.ExecuteReader();
             //TODO : Ansicht für Task Details
+
         }
 
         public void enterTaskProgress(string taskID, int status)
