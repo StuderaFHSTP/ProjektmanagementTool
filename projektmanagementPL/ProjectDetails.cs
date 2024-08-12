@@ -76,8 +76,6 @@ namespace projektmanagementPL
             }
             //TODO: Task details anzeigen
             //TODO: Task editieren
-
-            //TODO: Task nicht doppelt anzeigen nach editieren des projektes
         }
 
 
