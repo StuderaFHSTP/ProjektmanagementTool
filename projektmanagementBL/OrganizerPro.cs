@@ -137,7 +137,6 @@ namespace projektmanagementBL
 
         public void enterTaskProgress(string taskID, int status)
         {
-
             SqlConnection conn = GetConnection();
             string query = "UPDATE Task SET status = @status WHERE taskID = @taskID";
             SqlCommand cmd = new SqlCommand(query, conn);

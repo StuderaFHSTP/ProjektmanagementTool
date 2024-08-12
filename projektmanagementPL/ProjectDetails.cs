@@ -24,6 +24,8 @@ namespace projektmanagementPL
 
         private void ProjectDetails_Load(object sender, EventArgs e)
         {
+            tableLayoutProjectDetails.Controls.Clear();
+
             OrganizerPro organizerPro = new OrganizerPro();
             Project project = organizerPro.selectProject(projectID);
             if(project.ProjectOwner != loggedInUser.UserID)
@@ -74,6 +76,8 @@ namespace projektmanagementPL
             }
             //TODO: Task details anzeigen
             //TODO: Task editieren
+
+            //TODO: Task nicht doppelt anzeigen nach editieren des projektes
         }
 
 
