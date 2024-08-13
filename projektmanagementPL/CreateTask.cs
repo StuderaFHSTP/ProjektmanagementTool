@@ -37,5 +37,13 @@ namespace projektmanagementPL
             projectDetails.ShowDialog();
             this.Close();
         }
+
+        private void btnGoBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProjectDetails projectDetails = new ProjectDetails(projectID, loggedInUser);
+            projectDetails.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -90,6 +90,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaskComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaskComponent.Designer.cs">
+      <DependentUpon>TaskComponent.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CreateProject.resx">
       <DependentUpon>CreateProject.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskComponent.resx">
+      <DependentUpon>TaskComponent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -45,6 +45,7 @@
             this.tableLayoutProjectDetails = new System.Windows.Forms.TableLayoutPanel();
             this.lblTasks = new System.Windows.Forms.Label();
             this.btnCreateTask = new System.Windows.Forms.Button();
+            this.btnGoBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblProjectName
@@ -185,7 +186,7 @@
             // 
             // tableLayoutProjectDetails
             // 
-            this.tableLayoutProjectDetails.ColumnCount = 4;
+            this.tableLayoutProjectDetails.ColumnCount = 1;
             this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutProjectDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -198,6 +199,7 @@
             this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutProjectDetails.Size = new System.Drawing.Size(587, 176);
             this.tableLayoutProjectDetails.TabIndex = 14;
+            
             // 
             // lblTasks
             // 
@@ -220,11 +222,22 @@
             this.btnCreateTask.UseVisualStyleBackColor = true;
             this.btnCreateTask.Click += new System.EventHandler(this.btnCreateTask_Click);
             // 
+            // btnGoBack
+            // 
+            this.btnGoBack.Location = new System.Drawing.Point(12, 481);
+            this.btnGoBack.Name = "btnGoBack";
+            this.btnGoBack.Size = new System.Drawing.Size(75, 23);
+            this.btnGoBack.TabIndex = 17;
+            this.btnGoBack.Text = "Zurück";
+            this.btnGoBack.UseVisualStyleBackColor = true;
+            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
+            // 
             // ProjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 506);
+            this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnCreateTask);
             this.Controls.Add(this.lblTasks);
             this.Controls.Add(this.tableLayoutProjectDetails);
@@ -270,5 +283,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutProjectDetails;
         private System.Windows.Forms.Label lblTasks;
         private System.Windows.Forms.Button btnCreateTask;
+        private System.Windows.Forms.Button btnGoBack;
     }
 }

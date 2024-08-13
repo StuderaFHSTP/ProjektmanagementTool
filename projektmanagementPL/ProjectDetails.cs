@@ -15,6 +15,7 @@ namespace projektmanagementPL
     {
         private string projectID;
         private User loggedInUser;
+        private List<TaskComponent> taskComponentList = new List<TaskComponent>();
         public ProjectDetails(string projectID, User loggedInUser)
         {
             InitializeComponent();
@@ -43,7 +44,11 @@ namespace projektmanagementPL
             project.getAllTasks();
             foreach (projektmanagementBL.Task task in project.Tasks)
             {
-                Label taskName = new Label();
+                TaskComponent newTask = new TaskComponent(task);
+                
+                taskComponentList.Add(newTask);     
+                tableLayoutProjectDetails.Controls.Add(newTask);
+                /*Label taskName = new Label();
                 taskName.Text = task.TaskName;
                 taskName.AutoSize = true;
                 taskName.Margin = Padding.Empty;
@@ -72,10 +77,12 @@ namespace projektmanagementPL
                 tableLayoutProjectDetails.Controls.Add(deadline);
                 tableLayoutProjectDetails.Controls.Add(assignedUser);
                 tableLayoutProjectDetails.Controls.Add(details);
-                tableLayoutProjectDetails.Controls.Add(edit);
+                tableLayoutProjectDetails.Controls.Add(edit);*/
             }
             //TODO: Task details anzeigen
             //TODO: Task editieren
+            
+            
         }
 
 
@@ -133,5 +140,16 @@ namespace projektmanagementPL
             createTask.ShowDialog();
             this.Close();
         }
+
+        private void btnGoBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProjectOverview projectOverview = new ProjectOverview(loggedInUser);
+            projectOverview.ShowDialog();
+            this.Close();
+
+        }
+
+
     }
 }

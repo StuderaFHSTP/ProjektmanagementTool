@@ -38,6 +38,7 @@
             this.lblTaskDescription = new System.Windows.Forms.Label();
             this.txtTaskDescription = new System.Windows.Forms.RichTextBox();
             this.btnCreateTask = new System.Windows.Forms.Button();
+            this.btnGoBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCreateTask
@@ -125,11 +126,22 @@
             this.btnCreateTask.UseVisualStyleBackColor = true;
             this.btnCreateTask.Click += new System.EventHandler(this.btnCreateTask_Click);
             // 
+            // btnGoBack
+            // 
+            this.btnGoBack.Location = new System.Drawing.Point(26, 268);
+            this.btnGoBack.Name = "btnGoBack";
+            this.btnGoBack.Size = new System.Drawing.Size(75, 23);
+            this.btnGoBack.TabIndex = 18;
+            this.btnGoBack.Text = "Zurück";
+            this.btnGoBack.UseVisualStyleBackColor = true;
+            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
+            // 
             // CreateTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 303);
+            this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnCreateTask);
             this.Controls.Add(this.txtTaskDescription);
             this.Controls.Add(this.lblTaskDescription);
@@ -159,5 +171,6 @@
         private System.Windows.Forms.Label lblTaskDescription;
         private System.Windows.Forms.RichTextBox txtTaskDescription;
         private System.Windows.Forms.Button btnCreateTask;
+        private System.Windows.Forms.Button btnGoBack;
     }
 }
