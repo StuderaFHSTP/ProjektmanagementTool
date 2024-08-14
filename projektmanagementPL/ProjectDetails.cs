@@ -46,7 +46,7 @@ namespace projektmanagementPL
             foreach (projektmanagementBL.Task task in project.Tasks)
             {
                 TaskComponent newTask = new TaskComponent(task, loggedInUser, project);
-                
+                newTask.TaskSaved += TaskComponent_TaskSaved;
                 taskComponentList.Add(newTask);     
                 tableLayoutProjectDetails.Controls.Add(newTask);
                 /*Label taskName = new Label();
@@ -85,6 +85,13 @@ namespace projektmanagementPL
             
             
         }
+
+        private void TaskComponent_TaskSaved(object sender, EventArgs e)
+        {
+            // Laden Sie die ProjectDetails-Seite neu
+            ProjectDetails_Load(sender, e);
+        }
+
 
 
         private void btnProjectDetailsEdit_Click(object sender, EventArgs e)

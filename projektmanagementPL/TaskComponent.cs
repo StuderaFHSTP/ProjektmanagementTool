@@ -13,9 +13,12 @@ namespace projektmanagementPL
 {
     public partial class TaskComponent : UserControl
     {
+
         private projektmanagementBL.Task myTask { get; set; }
         private User loggedInUser;
         private Project project;
+        public event EventHandler TaskSaved;
+
         public TaskComponent()
         {
             InitializeComponent();
@@ -231,6 +234,7 @@ namespace projektmanagementPL
             {
                 organizerPro.editTask(myTask.TaskID, taskName, taskDescription, deadline, status, assignedUser);
             }
+            TaskSaved?.Invoke(this, EventArgs.Empty);
             createStandardLayout();
         }
 
