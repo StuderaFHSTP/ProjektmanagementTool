@@ -14,20 +14,20 @@ namespace projektmanagementPL
     public partial class TaskComponent : UserControl
     {
         private projektmanagementBL.Task myTask { get; set; }
+        private User loggedInUser;
+        private Project project;
         public TaskComponent()
         {
             InitializeComponent();
         }
 
-        public TaskComponent(projektmanagementBL.Task task)
+        public TaskComponent(projektmanagementBL.Task task, User loggedInUser, Project project)
         {
             InitializeComponent();
-            myTask = task;
+            this.myTask = task;
+            this.loggedInUser = loggedInUser;
+            this.project = project;
             createStandardLayout();
-
-
-
-
         }
 
         private void createStandardLayout()
@@ -40,7 +40,6 @@ namespace projektmanagementPL
             }
             Label taskName = new Label();
             taskName.Text = myTask.TaskName;
-            //taskName.AutoSize = true;
             taskName.Margin = Padding.Empty;
             Label deadline = new Label();
             deadline.Text = myTask.Deadline.ToString("dd.MM.yyyy");
@@ -56,18 +55,16 @@ namespace projektmanagementPL
             details.Margin = Padding.Empty;
             Button edit = new Button();
             edit.Click += new EventHandler(btnTaskEdit_Click);
-            edit.Text = "bearbeiten";
+            edit.Text = "Bearbeiten";
             edit.Margin = Padding.Empty;
-            /*
-            if (project.ProjectOwner == loggedInUser.UserID)
+            if(myTask.AssignedUser == loggedInUser.UserID || project.ProjectOwner == loggedInUser.UserID)
             {
                 edit.Visible = true;
-                tableLayoutProjectDetails.ColumnCount = 5;
             }
             else
             {
                 edit.Visible = false;
-            }*/
+            }
             tableLayoutPanelTask.Controls.Clear();
             tableLayoutPanelTask.Controls.Add(taskName);
             tableLayoutPanelTask.Controls.Add(deadline);
@@ -80,7 +77,6 @@ namespace projektmanagementPL
         {
             
             tableLayoutPanelTask.RowCount = 1;
-            //tableLayoutPanelTask.AutoSize = true;
             tableLayoutPanelTask.ColumnCount = 7;
             tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
@@ -112,16 +108,14 @@ namespace projektmanagementPL
             edit.Click += new EventHandler(btnTaskEdit_Click);
             edit.Text = "Bearbeiten";
             edit.Margin = Padding.Empty;
-            /*
-            if (project.ProjectOwner == loggedInUser.UserID)
+            if (myTask.AssignedUser == loggedInUser.UserID || project.ProjectOwner == loggedInUser.UserID)
             {
                 edit.Visible = true;
-                tableLayoutProjectDetails.ColumnCount = 5;
             }
             else
             {
                 edit.Visible = false;
-            }*/
+            }
             tableLayoutPanelTask.Controls.Clear();
             tableLayoutPanelTask.Controls.Add(taskName);
             tableLayoutPanelTask.Controls.Add(taskDescription);
@@ -133,13 +127,10 @@ namespace projektmanagementPL
 
         }
 
-
-
         private void createEditLayout()
         {
             
             tableLayoutPanelTask.RowCount = 1;
-            //tableLayoutPanelTask.AutoSize = true;
             tableLayoutPanelTask.ColumnCount = 7;
             tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
@@ -176,16 +167,15 @@ namespace projektmanagementPL
             save.Click += new EventHandler(btnTaskSave_Click);
             save.Text = "speichern";
             save.Margin = Padding.Empty;
-            /*
-            if (project.ProjectOwner == loggedInUser.UserID)
+
+            if (project.ProjectOwner != loggedInUser.UserID)
             {
-                edit.Visible = true;
-                tableLayoutProjectDetails.ColumnCount = 5;
+                taskName.ReadOnly = true;
+                taskDescription.ReadOnly = true;
+                deadline.ReadOnly = true;
+                assignedUser.ReadOnly = true;
             }
-            else
-            {
-                edit.Visible = false;
-            }*/
+
             tableLayoutPanelTask.Controls.Clear();
             tableLayoutPanelTask.Controls.Add(taskName);
             tableLayoutPanelTask.Controls.Add(taskDescription);
@@ -217,17 +207,15 @@ namespace projektmanagementPL
 
             tableLayoutPanelTask.Controls.Clear();
             createEditLayout();
-
-
         }
 
         private void btnTaskSave_Click(object sender, EventArgs e)
         {
             OrganizerPro organizerPro = new OrganizerPro();
-            myTask.TaskName = tableLayoutPanelTask.Controls.Find("tbTaskName", true).FirstOrDefault().Text;
-            myTask.TaskDescription = tableLayoutPanelTask.Controls.Find("tbDescription", true).FirstOrDefault().Text;
-            myTask.Deadline = Convert.ToDateTime(tableLayoutPanelTask.Controls.Find("tbDeadline", true).FirstOrDefault().Text);
-            myTask.Status = Convert.ToInt32(tableLayoutPanelTask.Controls.Find("tbStatus", true).FirstOrDefault().Text);
+            string taskName = tableLayoutPanelTask.Controls.Find("tbTaskName", true).FirstOrDefault().Text;
+            string taskDescription = tableLayoutPanelTask.Controls.Find("tbDescription", true).FirstOrDefault().Text;
+            DateTime deadline = Convert.ToDateTime(tableLayoutPanelTask.Controls.Find("tbDeadline", true).FirstOrDefault().Text);
+            int status = Convert.ToInt32(tableLayoutPanelTask.Controls.Find("tbStatus", true).FirstOrDefault().Text);
             string[] parts=tableLayoutPanelTask.Controls.Find("tbAssignedUser", true).FirstOrDefault().Text.Split(new[] { ' ' }, 2);
             String surname = "";
             if (parts.Length > 1)
@@ -235,10 +223,17 @@ namespace projektmanagementPL
             else
                 surname = parts[0];
 
-            myTask.AssignedUser = organizerPro.getUserID(surname);
-            organizerPro.editTask(myTask.TaskID, myTask.TaskName, myTask.TaskDescription, myTask.Deadline, myTask.Status, myTask.AssignedUser);
+            string assignedUser = organizerPro.getUserID(surname);
+            if(myTask.AssignedUser == loggedInUser.UserID)
+            {
+                organizerPro.enterTaskProgress(myTask.TaskID, status);
+            } else
+            {
+                organizerPro.editTask(myTask.TaskID, taskName, taskDescription, deadline, status, assignedUser);
+            }
             createStandardLayout();
         }
+
 
     }
 }

@@ -13,31 +13,31 @@ namespace projektmanagementBL
         public string TaskID
         {
             get { return taskID; }
-            set { taskID = value; }
+            internal set { taskID = value; }
         }
         private string taskName { get; set; }
         public string TaskName
         {
             get { return taskName; }
-            set { taskName = value; }
+            internal set { taskName = value; }
         }
         private string taskDescription { get; set; }
         public string TaskDescription
         {
             get { return taskDescription; }
-            set { taskDescription = value; }
+            internal set { taskDescription = value; }
         }
         private DateTime deadline { get; set; }
         public DateTime Deadline
         {
             get { return deadline; }
-            set { deadline = value; }
+            internal set { deadline = value; }
         }
         private int status { get; set; }
         public int Status
         {
             get { return status; }
-            set { status = value; }
+            internal set { status = value; }
         }
         private string projectID { get; set; }
         public string ProjectID
@@ -49,7 +49,7 @@ namespace projektmanagementBL
         public string AssignedUser
         {
             get { return assignedUser; }
-            set { assignedUser = value; }
+            internal set { assignedUser = value; }
         }
 
         internal Task() { }

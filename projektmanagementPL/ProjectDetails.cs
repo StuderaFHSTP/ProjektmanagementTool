@@ -38,13 +38,14 @@ namespace projektmanagementPL
             lblProjectName.Text = project.ProjectName;
             lblProjectDetailsStartTime.Text = project.ProjectStart.ToString("dd.MM.yyyy");
             lblProjectDetailEndTime.Text = project.ProjectEnd.ToString("dd.MM.yyyy");
-            lblProjectDetailSetOwner.Text = project.getProjectOwnerName();
+            User projectOwner = organizerPro.getProjectOwner(projectID);
+            lblProjectDetailSetOwner.Text = projectOwner.Name + " " + projectOwner.Surname;
             txtProjectDetailsSetDescription.Text = project.ProjectDescription;
 
             project.getAllTasks();
             foreach (projektmanagementBL.Task task in project.Tasks)
             {
-                TaskComponent newTask = new TaskComponent(task);
+                TaskComponent newTask = new TaskComponent(task, loggedInUser, project);
                 
                 taskComponentList.Add(newTask);     
                 tableLayoutProjectDetails.Controls.Add(newTask);

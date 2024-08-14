@@ -87,23 +87,5 @@ namespace projektmanagementBL
             }
             conn.Close();
         }
-
-
-        public string getProjectOwnerName()
-        {
-            OrganizerPro organizerPro = new OrganizerPro();
-            SqlConnection conn = organizerPro.GetConnection();
-            string query = "SELECT * FROM [User] WHERE userID = @userID";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@userID", projectOwner);
-            SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            string ownerName = reader["name"].ToString() + " " + reader["surname"].ToString();
-            conn.Close();
-            return ownerName;
-        }
-
-
-
     }
 }

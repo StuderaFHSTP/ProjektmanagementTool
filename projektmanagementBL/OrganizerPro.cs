@@ -12,8 +12,8 @@ namespace projektmanagementBL
     public class OrganizerPro
     {
         //Connection String muss geändert werden abhängig von wer die Datenbank lokal speichert
-        // string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
-        private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        //private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
 
 
 
@@ -57,11 +57,6 @@ namespace projektmanagementBL
             }
         }
 
-        public void goToRegister()
-        {
-            //TODO: Ansicht für Registrierung
-        }
-
         public bool newUser(String name, String surname, String email, String password, String role, String deparment)
         {
             string userID = Guid.NewGuid().ToString("N").Substring(0, 30);
@@ -88,7 +83,6 @@ namespace projektmanagementBL
             }
             
         }
-
         public string getUserID(string surname)
         {
             SqlConnection conn = GetConnection();
@@ -161,11 +155,7 @@ namespace projektmanagementBL
             conn.Close();
         }
 
-        public void newProject() { 
-            //TODO: Ansicht für erstellen eines neuen Projekts
-        }
-
-        public string createProject(string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
+        public Project createProject(string projectName, DateTime projectStart, DateTime projectEnd, string projectDescription, string projectOwner)
         {
             string projectID = Guid.NewGuid().ToString("N").Substring(0,30);
             Project project = new Project(projectID,projectName, projectStart, projectEnd, projectDescription, projectOwner);
@@ -180,7 +170,7 @@ namespace projektmanagementBL
             cmd.Parameters.AddWithValue("@projectOwner", project.ProjectOwner);
             cmd.ExecuteNonQuery();
             conn.Close();   
-            return projectID;
+            return project;
 
         }
 
@@ -242,6 +232,36 @@ namespace projektmanagementBL
             conn.Close();
         }
 
-
+        public User getProjectOwner(string projectID)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "SELECT projectOwner FROM Project WHERE projectID = @projectID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@projectID", projectID);
+            SqlDataReader reader = cmd.ExecuteReader();
+            string projectOwner = "";
+            while (reader.Read())
+            {
+                projectOwner = reader["projectOwner"].ToString();
+            }
+            reader.Close();
+            query = "SELECT * FROM [User] WHERE userID = @projectOwner";
+            cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@projectOwner", projectOwner);
+            reader = cmd.ExecuteReader();
+            User user = new User();
+            while (reader.Read())
+            {
+                user.UserID = reader["userID"].ToString();
+                user.Name = reader["name"].ToString();
+                user.Surname = reader["surname"].ToString();
+                user.Email = reader["email"].ToString();
+                user.Role = reader["role"].ToString();
+                user.Department = reader["department"].ToString();
+                user.ProjectID = reader["projectID"].ToString();
+            }
+            conn.Close();
+            return user;
+        }
     }
 }

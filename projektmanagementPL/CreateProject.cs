@@ -28,18 +28,21 @@ namespace projektmanagementPL
             string projectDescription = txtProjectBeschreibung.Text;
 
             OrganizerPro organizerPro = new OrganizerPro();
-            string projectID = organizerPro.createProject(projectName, projectStart, projectEnd, projectDescription, loggedInUser.UserID);
+            Project project = organizerPro.createProject(projectName, projectStart, projectEnd, projectDescription, loggedInUser.UserID);
 
             this.Hide();
-            ProjectDetails projectDetails = new ProjectDetails(projectID, loggedInUser);
+            ProjectDetails projectDetails = new ProjectDetails(project.ProjectID, loggedInUser);
             projectDetails.ShowDialog();
             this.Close();
             
         }
 
-        private void CreateProject_Load(object sender, EventArgs e)
+        private void btnGoBack_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            ProjectOverview projectOverview = new ProjectOverview(loggedInUser);
+            projectOverview.ShowDialog();
+            this.Close();
         }
     }
 }

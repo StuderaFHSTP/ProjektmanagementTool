@@ -38,6 +38,7 @@
             this.txtProjectName = new System.Windows.Forms.TextBox();
             this.txtProjectBeschreibung = new System.Windows.Forms.RichTextBox();
             this.btnProjectErstellen = new System.Windows.Forms.Button();
+            this.btnGoBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblProjectName
@@ -125,11 +126,22 @@
             this.btnProjectErstellen.UseVisualStyleBackColor = true;
             this.btnProjectErstellen.Click += new System.EventHandler(this.btnProjectErstellen_Click);
             // 
+            // btnGoBack
+            // 
+            this.btnGoBack.Location = new System.Drawing.Point(13, 293);
+            this.btnGoBack.Name = "btnGoBack";
+            this.btnGoBack.Size = new System.Drawing.Size(75, 23);
+            this.btnGoBack.TabIndex = 10;
+            this.btnGoBack.Text = "Zurück";
+            this.btnGoBack.UseVisualStyleBackColor = true;
+            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
+            // 
             // CreateProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 328);
+            this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnProjectErstellen);
             this.Controls.Add(this.txtProjectBeschreibung);
             this.Controls.Add(this.txtProjectName);
@@ -144,7 +156,6 @@
             this.MinimizeBox = false;
             this.Name = "CreateProject";
             this.Text = "CreateProject";
-            this.Load += new System.EventHandler(this.CreateProject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +173,6 @@
         private System.Windows.Forms.TextBox txtProjectName;
         private System.Windows.Forms.RichTextBox txtProjectBeschreibung;
         private System.Windows.Forms.Button btnProjectErstellen;
+        private System.Windows.Forms.Button btnGoBack;
     }
 }
