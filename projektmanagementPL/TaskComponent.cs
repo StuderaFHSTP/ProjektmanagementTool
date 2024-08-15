@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace projektmanagementPL
 {
@@ -34,20 +35,33 @@ namespace projektmanagementPL
         }
 
         private void createStandardLayout()
-        {   
-            if(tableLayoutPanelTask.ColumnCount != 5)
+        {
+
+           
+
+
+            if (tableLayoutPanelTask.ColumnCount != 5)
             {
                 tableLayoutPanelTask.ColumnCount = 5;
                 tableLayoutPanelTask.ColumnStyles.RemoveAt(6);
                 tableLayoutPanelTask.ColumnStyles.RemoveAt(5);
             }
+
+            tableLayoutPanelTask.ColumnStyles.Clear();
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             Label taskName = new Label();
             taskName.Text = myTask.TaskName;
+            taskName.AutoSize = true;
             taskName.Margin = Padding.Empty;
             Label deadline = new Label();
             deadline.Text = myTask.Deadline.ToString("dd.MM.yyyy");
             deadline.AutoSize = true;
             deadline.Margin = Padding.Empty;
+            
             Label assignedUser = new Label();
             assignedUser.Text = myTask.getTaskAssignedUserName();
             assignedUser.AutoSize = true;
@@ -56,6 +70,8 @@ namespace projektmanagementPL
             details.Text = "Details";
             details.Click += new EventHandler(btnTaskDetails_Click);
             details.Margin = Padding.Empty;
+
+
             Button edit = new Button();
             edit.Click += new EventHandler(btnTaskEdit_Click);
             edit.Text = "Bearbeiten";
@@ -78,7 +94,13 @@ namespace projektmanagementPL
 
         private void createDetailLayout()
         {
-            
+            tableLayoutPanelTask.ColumnStyles.Clear();
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7F));
+
             tableLayoutPanelTask.RowCount = 1;
             tableLayoutPanelTask.ColumnCount = 7;
             tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
@@ -87,7 +109,9 @@ namespace projektmanagementPL
             taskName.Text = myTask.TaskName;
             taskName.AutoSize = true;
             taskName.Margin = Padding.Empty;
-            Label taskDescription = new Label();
+            RichTextBox taskDescription = new RichTextBox();
+            taskDescription.Width = 200;
+            //taskDescription.Enabled = false;
             taskDescription.Text = myTask.TaskDescription;
             taskDescription.AutoSize = true;
             taskDescription.Margin = Padding.Empty;
@@ -100,7 +124,11 @@ namespace projektmanagementPL
             assignedUser.AutoSize = true;
             assignedUser.Margin = Padding.Empty;
             Label status = new Label();
-            status.Text = myTask.Status.ToString();
+            //status.Text = myTask.Status.ToString();
+            status.Text = "------";
+            status.ForeColor = getColorFromStatus(myTask.Status);
+            status.BackColor = getColorFromStatus(myTask.Status);
+            
             status.AutoSize = true;
             status.Margin = Padding.Empty;
             Button standard = new Button();
@@ -131,20 +159,30 @@ namespace projektmanagementPL
         }
 
         private void createEditLayout()
-        {
+        {   
             
-            tableLayoutPanelTask.RowCount = 1;
-            tableLayoutPanelTask.ColumnCount = 7;
+            tableLayoutPanelTask.ColumnStyles.Clear();
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7F));
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7F));
+
+            tableLayoutPanelTask.RowCount = 2;
+            tableLayoutPanelTask.ColumnCount = 8;
+            tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             tableLayoutPanelTask.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             TextBox taskName = new TextBox();
             taskName.Name = "tbTaskName";
             taskName.Text = myTask.TaskName;
+            taskName.Dock = DockStyle.Fill;
             taskName.AutoSize = true;
             taskName.Margin = Padding.Empty;
             TextBox taskDescription = new TextBox();
             taskDescription.Name = "tbDescription";
             taskDescription.Text = myTask.TaskDescription;
+            taskDescription.Dock = DockStyle.Fill;
             taskDescription.AutoSize = true;
             taskDescription.Margin = Padding.Empty;
             TextBox deadline = new TextBox();
@@ -171,6 +209,11 @@ namespace projektmanagementPL
             save.Text = "speichern";
             save.Margin = Padding.Empty;
 
+            Button delete = new Button();
+            delete.Text = "löschen";
+            delete.Margin = Padding.Empty;
+            delete.Click += new EventHandler(btnTaskDelete_Click);
+
             if (project.ProjectOwner != loggedInUser.UserID)
             {
                 taskName.ReadOnly = true;
@@ -180,13 +223,14 @@ namespace projektmanagementPL
             }
 
             tableLayoutPanelTask.Controls.Clear();
-            tableLayoutPanelTask.Controls.Add(taskName);
+            tableLayoutPanelTask.Controls.Add(taskName);        
             tableLayoutPanelTask.Controls.Add(taskDescription);
             tableLayoutPanelTask.Controls.Add(deadline);
             tableLayoutPanelTask.Controls.Add(assignedUser);
             tableLayoutPanelTask.Controls.Add(status);
             tableLayoutPanelTask.Controls.Add(cancel);
             tableLayoutPanelTask.Controls.Add(save);
+            tableLayoutPanelTask.Controls.Add(delete);
         }
 
         
@@ -238,6 +282,31 @@ namespace projektmanagementPL
             createStandardLayout();
         }
 
+        private Color getColorFromStatus(int status)
+        {
+            switch (status)
+            {
+                case 0:
+                    return Color.Red;
+                case 1:
+                    return Color.Yellow;
+                case 2:
+                    return Color.Green;
+                default:
+                    return Color.Black;
+            }
+        }
 
+        private void btnTaskDelete_Click(object sender, EventArgs e)
+        {
+            OrganizerPro organizerPro = new OrganizerPro();
+            organizerPro.deleteTask(myTask.TaskID);
+            TaskSaved?.Invoke(this, EventArgs.Empty);
+
+            
+            
+        }
     }
+
+    
 }

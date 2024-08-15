@@ -33,17 +33,18 @@
             // 
             // tableLayoutPanelTask
             // 
+            this.tableLayoutPanelTask.BackColor = System.Drawing.SystemColors.ControlLight;
             this.tableLayoutPanelTask.ColumnCount = 5;
-            this.tableLayoutPanelTask.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanelTask.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanelTask.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanelTask.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelTask.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelTask.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelTask.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelTask.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanelTask.Location = new System.Drawing.Point(3, 6);
             this.tableLayoutPanelTask.Name = "tableLayoutPanelTask";
             this.tableLayoutPanelTask.RowCount = 1;
             this.tableLayoutPanelTask.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelTask.Size = new System.Drawing.Size(571, 33);
+            this.tableLayoutPanelTask.Size = new System.Drawing.Size(942, 33);
             this.tableLayoutPanelTask.TabIndex = 5;
             // 
             // TaskComponent
@@ -53,7 +54,7 @@
             this.AutoSize = true;
             this.Controls.Add(this.tableLayoutPanelTask);
             this.Name = "TaskComponent";
-            this.Size = new System.Drawing.Size(579, 95);
+            this.Size = new System.Drawing.Size(948, 95);
             this.ResumeLayout(false);
 
         }

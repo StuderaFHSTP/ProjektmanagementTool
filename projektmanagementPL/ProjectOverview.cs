@@ -61,5 +61,14 @@ namespace projektmanagementPL
             createProject.ShowDialog();
             this.Close();
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.loggedInUser= null;
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
+        }
     }
 }

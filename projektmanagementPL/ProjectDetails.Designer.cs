@@ -140,7 +140,7 @@
             // 
             // btnProjectDetailsEdit
             // 
-            this.btnProjectDetailsEdit.Location = new System.Drawing.Point(537, 29);
+            this.btnProjectDetailsEdit.Location = new System.Drawing.Point(904, 33);
             this.btnProjectDetailsEdit.Name = "btnProjectDetailsEdit";
             this.btnProjectDetailsEdit.Size = new System.Drawing.Size(92, 23);
             this.btnProjectDetailsEdit.TabIndex = 9;
@@ -175,7 +175,7 @@
             // 
             // btnProjectDetailSave
             // 
-            this.btnProjectDetailSave.Location = new System.Drawing.Point(537, 29);
+            this.btnProjectDetailSave.Location = new System.Drawing.Point(904, 33);
             this.btnProjectDetailSave.Name = "btnProjectDetailSave";
             this.btnProjectDetailSave.Size = new System.Drawing.Size(92, 32);
             this.btnProjectDetailSave.TabIndex = 13;
@@ -197,9 +197,9 @@
             this.tableLayoutProjectDetails.RowCount = 2;
             this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutProjectDetails.Size = new System.Drawing.Size(587, 176);
+            this.tableLayoutProjectDetails.Size = new System.Drawing.Size(954, 176);
             this.tableLayoutProjectDetails.TabIndex = 14;
-            
+
             // 
             // lblTasks
             // 
@@ -224,7 +224,7 @@
             // 
             // btnGoBack
             // 
-            this.btnGoBack.Location = new System.Drawing.Point(12, 481);
+            this.btnGoBack.Location = new System.Drawing.Point(42, 481);
             this.btnGoBack.Name = "btnGoBack";
             this.btnGoBack.Size = new System.Drawing.Size(75, 23);
             this.btnGoBack.TabIndex = 17;
@@ -236,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 506);
+            this.ClientSize = new System.Drawing.Size(1042, 527);
             this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnCreateTask);
             this.Controls.Add(this.lblTasks);

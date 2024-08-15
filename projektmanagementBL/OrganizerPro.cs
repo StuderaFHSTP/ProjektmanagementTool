@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -12,8 +13,8 @@ namespace projektmanagementBL
     public class OrganizerPro
     {
         //Connection String muss geändert werden abhängig von wer die Datenbank lokal speichert
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
-        //private string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        //string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
 
 
 
@@ -100,7 +101,7 @@ namespace projektmanagementBL
         }
 
         public void createTask(string taskName, string taskDescription, DateTime deadline, int status, string projectID, string assignedUser)
-        {
+        {   
             string taskID = Guid.NewGuid().ToString("N").Substring(0, 30);
             Task task = new Task(taskID, taskName, taskDescription, deadline, status, projectID, assignedUser);
             SqlConnection conn = GetConnection();
@@ -172,6 +173,16 @@ namespace projektmanagementBL
             conn.Close();   
             return project;
 
+        }
+
+        public void deleteTask(string taskID)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "DELETE FROM Task WHERE taskID = @taskID";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@taskID", taskID);
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public Project selectProject(string projectID)

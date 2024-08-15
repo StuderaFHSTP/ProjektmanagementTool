@@ -31,6 +31,7 @@
             this.lblProjectOverviewTitle = new System.Windows.Forms.Label();
             this.btnProjectOverviewCreate = new System.Windows.Forms.Button();
             this.tableLayoutProjectOverview = new System.Windows.Forms.TableLayoutPanel();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblProjectOverviewTitle
@@ -67,11 +68,22 @@
             this.tableLayoutProjectOverview.Size = new System.Drawing.Size(200, 100);
             this.tableLayoutProjectOverview.TabIndex = 3;
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(24, 344);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(75, 29);
+            this.btnLogOut.TabIndex = 4;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // ProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 385);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.tableLayoutProjectOverview);
             this.Controls.Add(this.btnProjectOverviewCreate);
             this.Controls.Add(this.lblProjectOverviewTitle);
@@ -89,5 +101,6 @@
         private System.Windows.Forms.Label lblProjectOverviewTitle;
         private System.Windows.Forms.Button btnProjectOverviewCreate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutProjectOverview;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }
