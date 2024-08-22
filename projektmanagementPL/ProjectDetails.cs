@@ -113,6 +113,7 @@ namespace projektmanagementPL
 
             btnProjectDetailsEdit.Visible = false;
             btnProjectDetailSave.Visible = true;
+            btnCreateTask.Enabled = false;
 
         }
 
@@ -139,6 +140,7 @@ namespace projektmanagementPL
 
             btnProjectDetailSave.Visible = false;
             btnProjectDetailsEdit.Visible = true;
+            btnCreateTask.Enabled = true;
         }
 
         private void btnCreateTask_Click(object sender, EventArgs e)

@@ -49,7 +49,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(310, 24);
+            this.lblTitle.Location = new System.Drawing.Point(243, 24);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(184, 32);
             this.lblTitle.TabIndex = 3;
@@ -57,7 +57,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(353, 91);
+            this.txtName.Location = new System.Drawing.Point(297, 81);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(170, 22);
             this.txtName.TabIndex = 4;
@@ -65,7 +65,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(266, 91);
+            this.lblName.Location = new System.Drawing.Point(210, 87);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(65, 16);
             this.lblName.TabIndex = 5;
@@ -73,7 +73,7 @@
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(353, 116);
+            this.txtSurname.Location = new System.Drawing.Point(297, 109);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(170, 22);
             this.txtSurname.TabIndex = 4;
@@ -81,7 +81,7 @@
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(266, 119);
+            this.lblSurname.Location = new System.Drawing.Point(210, 112);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(76, 16);
             this.lblSurname.TabIndex = 5;
@@ -89,7 +89,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(353, 145);
+            this.txtEmail.Location = new System.Drawing.Point(297, 138);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(170, 22);
             this.txtEmail.TabIndex = 4;
@@ -97,7 +97,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(265, 148);
+            this.lblEmail.Location = new System.Drawing.Point(209, 141);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(44, 16);
             this.lblEmail.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             // txtPasswort
             // 
-            this.txtPasswort.Location = new System.Drawing.Point(353, 173);
+            this.txtPasswort.Location = new System.Drawing.Point(297, 166);
             this.txtPasswort.Name = "txtPasswort";
             this.txtPasswort.Size = new System.Drawing.Size(170, 22);
             this.txtPasswort.TabIndex = 4;
@@ -113,7 +113,7 @@
             // lblPasswort
             // 
             this.lblPasswort.AutoSize = true;
-            this.lblPasswort.Location = new System.Drawing.Point(265, 176);
+            this.lblPasswort.Location = new System.Drawing.Point(209, 169);
             this.lblPasswort.Name = "lblPasswort";
             this.lblPasswort.Size = new System.Drawing.Size(65, 16);
             this.lblPasswort.TabIndex = 5;
@@ -122,7 +122,7 @@
             // lblAbteilung
             // 
             this.lblAbteilung.AutoSize = true;
-            this.lblAbteilung.Location = new System.Drawing.Point(265, 204);
+            this.lblAbteilung.Location = new System.Drawing.Point(209, 197);
             this.lblAbteilung.Name = "lblAbteilung";
             this.lblAbteilung.Size = new System.Drawing.Size(66, 16);
             this.lblAbteilung.TabIndex = 5;
@@ -131,7 +131,7 @@
             // lblRolle
             // 
             this.lblRolle.AutoSize = true;
-            this.lblRolle.Location = new System.Drawing.Point(266, 232);
+            this.lblRolle.Location = new System.Drawing.Point(210, 225);
             this.lblRolle.Name = "lblRolle";
             this.lblRolle.Size = new System.Drawing.Size(42, 16);
             this.lblRolle.TabIndex = 5;
@@ -146,7 +146,7 @@
             "Usability",
             "Testing",
             "Support"});
-            this.ddAbteilung.Location = new System.Drawing.Point(353, 201);
+            this.ddAbteilung.Location = new System.Drawing.Point(297, 194);
             this.ddAbteilung.Name = "ddAbteilung";
             this.ddAbteilung.Size = new System.Drawing.Size(171, 24);
             this.ddAbteilung.TabIndex = 6;
@@ -157,14 +157,14 @@
             this.ddRolle.Items.AddRange(new object[] {
             "Projektleiter",
             "Mitarbeiter"});
-            this.ddRolle.Location = new System.Drawing.Point(353, 231);
+            this.ddRolle.Location = new System.Drawing.Point(297, 224);
             this.ddRolle.Name = "ddRolle";
             this.ddRolle.Size = new System.Drawing.Size(171, 24);
             this.ddRolle.TabIndex = 6;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(316, 274);
+            this.btnRegister.Location = new System.Drawing.Point(249, 320);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(178, 31);
             this.btnRegister.TabIndex = 7;
@@ -177,7 +177,7 @@
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(266, 388);
+            this.lblError.Location = new System.Drawing.Point(209, 297);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(273, 16);
             this.lblError.TabIndex = 8;
@@ -188,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(682, 453);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.ddRolle);
@@ -205,6 +205,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblTitle);
             this.Name = "Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();

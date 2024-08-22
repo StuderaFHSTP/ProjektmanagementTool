@@ -50,5 +50,7 @@ namespace projektmanagementPL
             register.ShowDialog();
             this.Close();
         }
+
+
     }
 }

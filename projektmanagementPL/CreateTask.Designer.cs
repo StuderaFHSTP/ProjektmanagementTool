@@ -45,7 +45,7 @@
             // 
             this.lblCreateTask.AutoSize = true;
             this.lblCreateTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateTask.Location = new System.Drawing.Point(148, 20);
+            this.lblCreateTask.Location = new System.Drawing.Point(30, 19);
             this.lblCreateTask.Name = "lblCreateTask";
             this.lblCreateTask.Size = new System.Drawing.Size(191, 32);
             this.lblCreateTask.TabIndex = 0;
@@ -54,7 +54,7 @@
             // lblTaskName
             // 
             this.lblTaskName.AutoSize = true;
-            this.lblTaskName.Location = new System.Drawing.Point(33, 65);
+            this.lblTaskName.Location = new System.Drawing.Point(34, 71);
             this.lblTaskName.Name = "lblTaskName";
             this.lblTaskName.Size = new System.Drawing.Size(81, 16);
             this.lblTaskName.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // txtTaskName
             // 
-            this.txtTaskName.Location = new System.Drawing.Point(136, 65);
+            this.txtTaskName.Location = new System.Drawing.Point(136, 71);
             this.txtTaskName.Name = "txtTaskName";
             this.txtTaskName.Size = new System.Drawing.Size(243, 22);
             this.txtTaskName.TabIndex = 2;
@@ -112,15 +112,15 @@
             // 
             this.txtTaskDescription.Location = new System.Drawing.Point(136, 174);
             this.txtTaskDescription.Name = "txtTaskDescription";
-            this.txtTaskDescription.Size = new System.Drawing.Size(243, 96);
+            this.txtTaskDescription.Size = new System.Drawing.Size(411, 154);
             this.txtTaskDescription.TabIndex = 8;
             this.txtTaskDescription.Text = "";
             // 
             // btnCreateTask
             // 
-            this.btnCreateTask.Location = new System.Drawing.Point(407, 268);
+            this.btnCreateTask.Location = new System.Drawing.Point(577, 418);
             this.btnCreateTask.Name = "btnCreateTask";
-            this.btnCreateTask.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateTask.Size = new System.Drawing.Size(90, 25);
             this.btnCreateTask.TabIndex = 9;
             this.btnCreateTask.Text = "Erstellen";
             this.btnCreateTask.UseVisualStyleBackColor = true;
@@ -128,9 +128,9 @@
             // 
             // btnGoBack
             // 
-            this.btnGoBack.Location = new System.Drawing.Point(26, 268);
+            this.btnGoBack.Location = new System.Drawing.Point(12, 418);
             this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(75, 23);
+            this.btnGoBack.Size = new System.Drawing.Size(90, 25);
             this.btnGoBack.TabIndex = 18;
             this.btnGoBack.Text = "Zurück";
             this.btnGoBack.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 303);
+            this.ClientSize = new System.Drawing.Size(682, 453);
             this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnCreateTask);
             this.Controls.Add(this.txtTaskDescription);
@@ -153,6 +153,7 @@
             this.Controls.Add(this.lblTaskName);
             this.Controls.Add(this.lblCreateTask);
             this.Name = "CreateTask";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateTask";
             this.ResumeLayout(false);
             this.PerformLayout();

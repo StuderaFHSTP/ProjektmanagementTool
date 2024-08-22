@@ -43,7 +43,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(270, 9);
+            this.lblTitle.Location = new System.Drawing.Point(294, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(85, 32);
             this.lblTitle.TabIndex = 2;
@@ -53,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(216, 90);
+            this.label1.Location = new System.Drawing.Point(240, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 18);
             this.label1.TabIndex = 3;
@@ -61,7 +61,7 @@
             // 
             // txtLoginEmail
             // 
-            this.txtLoginEmail.Location = new System.Drawing.Point(272, 90);
+            this.txtLoginEmail.Location = new System.Drawing.Point(240, 102);
             this.txtLoginEmail.Name = "txtLoginEmail";
             this.txtLoginEmail.Size = new System.Drawing.Size(196, 22);
             this.txtLoginEmail.TabIndex = 4;
@@ -70,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(195, 134);
+            this.label2.Location = new System.Drawing.Point(240, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 18);
             this.label2.TabIndex = 3;
@@ -78,16 +78,16 @@
             // 
             // txtLoginPW
             // 
-            this.txtLoginPW.Location = new System.Drawing.Point(272, 130);
+            this.txtLoginPW.Location = new System.Drawing.Point(240, 155);
             this.txtLoginPW.Name = "txtLoginPW";
             this.txtLoginPW.Size = new System.Drawing.Size(196, 22);
             this.txtLoginPW.TabIndex = 4;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(240, 201);
+            this.btnLogin.Location = new System.Drawing.Point(258, 210);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(153, 23);
+            this.btnLogin.Size = new System.Drawing.Size(153, 27);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Anmelden";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // 
             // btnGoToRegister
             // 
-            this.btnGoToRegister.Location = new System.Drawing.Point(240, 322);
+            this.btnGoToRegister.Location = new System.Drawing.Point(258, 322);
             this.btnGoToRegister.Name = "btnGoToRegister";
             this.btnGoToRegister.Size = new System.Drawing.Size(153, 29);
             this.btnGoToRegister.TabIndex = 6;
@@ -106,18 +106,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(142, 303);
+            this.label3.Location = new System.Drawing.Point(151, 303);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(374, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Falls Sie noch keinen Account haben registrieren Sie sich hier!";
+
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(183, 236);
+            this.lblError.Location = new System.Drawing.Point(194, 189);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(294, 16);
             this.lblError.TabIndex = 9;
@@ -128,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 374);
+            this.ClientSize = new System.Drawing.Size(682, 453);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnGoToRegister);
@@ -139,6 +140,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTitle);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

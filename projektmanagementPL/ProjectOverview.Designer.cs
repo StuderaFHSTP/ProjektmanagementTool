@@ -38,7 +38,7 @@
             // 
             this.lblProjectOverviewTitle.AutoSize = true;
             this.lblProjectOverviewTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProjectOverviewTitle.Location = new System.Drawing.Point(35, 25);
+            this.lblProjectOverviewTitle.Location = new System.Drawing.Point(263, 23);
             this.lblProjectOverviewTitle.Name = "lblProjectOverviewTitle";
             this.lblProjectOverviewTitle.Size = new System.Drawing.Size(132, 36);
             this.lblProjectOverviewTitle.TabIndex = 0;
@@ -46,9 +46,9 @@
             // 
             // btnProjectOverviewCreate
             // 
-            this.btnProjectOverviewCreate.Location = new System.Drawing.Point(329, 25);
+            this.btnProjectOverviewCreate.Location = new System.Drawing.Point(571, 416);
             this.btnProjectOverviewCreate.Name = "btnProjectOverviewCreate";
-            this.btnProjectOverviewCreate.Size = new System.Drawing.Size(81, 23);
+            this.btnProjectOverviewCreate.Size = new System.Drawing.Size(90, 25);
             this.btnProjectOverviewCreate.TabIndex = 2;
             this.btnProjectOverviewCreate.Text = "Erstellen";
             this.btnProjectOverviewCreate.UseVisualStyleBackColor = true;
@@ -60,7 +60,7 @@
             this.tableLayoutProjectOverview.ColumnCount = 2;
             this.tableLayoutProjectOverview.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutProjectOverview.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutProjectOverview.Location = new System.Drawing.Point(24, 80);
+            this.tableLayoutProjectOverview.Location = new System.Drawing.Point(230, 73);
             this.tableLayoutProjectOverview.Name = "tableLayoutProjectOverview";
             this.tableLayoutProjectOverview.RowCount = 2;
             this.tableLayoutProjectOverview.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -70,11 +70,11 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(24, 344);
+            this.btnLogOut.Location = new System.Drawing.Point(22, 416);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(75, 29);
+            this.btnLogOut.Size = new System.Drawing.Size(90, 25);
             this.btnLogOut.TabIndex = 4;
-            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.Text = "Ausloggen";
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
@@ -82,13 +82,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 385);
+            this.ClientSize = new System.Drawing.Size(682, 453);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.tableLayoutProjectOverview);
             this.Controls.Add(this.btnProjectOverviewCreate);
             this.Controls.Add(this.lblProjectOverviewTitle);
             this.MaximizeBox = false;
             this.Name = "ProjectOverview";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProjectOverview";
             this.Load += new System.EventHandler(this.ProjectOverview_Load);
             this.ResumeLayout(false);

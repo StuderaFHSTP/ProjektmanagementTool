@@ -44,7 +44,7 @@
             // lblProjectName
             // 
             this.lblProjectName.AutoSize = true;
-            this.lblProjectName.Location = new System.Drawing.Point(34, 64);
+            this.lblProjectName.Location = new System.Drawing.Point(37, 67);
             this.lblProjectName.Name = "lblProjectName";
             this.lblProjectName.Size = new System.Drawing.Size(86, 16);
             this.lblProjectName.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(139, 9);
+            this.lblTitle.Location = new System.Drawing.Point(34, 23);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(219, 32);
             this.lblTitle.TabIndex = 1;
@@ -89,38 +89,38 @@
             // 
             // dateStart
             // 
-            this.dateStart.Location = new System.Drawing.Point(122, 92);
+            this.dateStart.Location = new System.Drawing.Point(130, 92);
             this.dateStart.Name = "dateStart";
             this.dateStart.Size = new System.Drawing.Size(252, 22);
             this.dateStart.TabIndex = 5;
             // 
             // dateEnd
             // 
-            this.dateEnd.Location = new System.Drawing.Point(122, 126);
+            this.dateEnd.Location = new System.Drawing.Point(130, 126);
             this.dateEnd.Name = "dateEnd";
             this.dateEnd.Size = new System.Drawing.Size(252, 22);
             this.dateEnd.TabIndex = 6;
             // 
             // txtProjectName
             // 
-            this.txtProjectName.Location = new System.Drawing.Point(127, 64);
+            this.txtProjectName.Location = new System.Drawing.Point(129, 64);
             this.txtProjectName.Name = "txtProjectName";
             this.txtProjectName.Size = new System.Drawing.Size(154, 22);
             this.txtProjectName.TabIndex = 7;
             // 
             // txtProjectBeschreibung
             // 
-            this.txtProjectBeschreibung.Location = new System.Drawing.Point(40, 183);
+            this.txtProjectBeschreibung.Location = new System.Drawing.Point(130, 164);
             this.txtProjectBeschreibung.Name = "txtProjectBeschreibung";
-            this.txtProjectBeschreibung.Size = new System.Drawing.Size(334, 96);
+            this.txtProjectBeschreibung.Size = new System.Drawing.Size(411, 154);
             this.txtProjectBeschreibung.TabIndex = 8;
             this.txtProjectBeschreibung.Text = "";
             // 
             // btnProjectErstellen
             // 
-            this.btnProjectErstellen.Location = new System.Drawing.Point(408, 293);
+            this.btnProjectErstellen.Location = new System.Drawing.Point(580, 418);
             this.btnProjectErstellen.Name = "btnProjectErstellen";
-            this.btnProjectErstellen.Size = new System.Drawing.Size(75, 23);
+            this.btnProjectErstellen.Size = new System.Drawing.Size(90, 25);
             this.btnProjectErstellen.TabIndex = 9;
             this.btnProjectErstellen.Text = "Erstellen";
             this.btnProjectErstellen.UseVisualStyleBackColor = true;
@@ -128,9 +128,9 @@
             // 
             // btnGoBack
             // 
-            this.btnGoBack.Location = new System.Drawing.Point(13, 293);
+            this.btnGoBack.Location = new System.Drawing.Point(12, 418);
             this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(75, 23);
+            this.btnGoBack.Size = new System.Drawing.Size(90, 25);
             this.btnGoBack.TabIndex = 10;
             this.btnGoBack.Text = "Zurück";
             this.btnGoBack.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 328);
+            this.ClientSize = new System.Drawing.Size(682, 453);
             this.Controls.Add(this.btnGoBack);
             this.Controls.Add(this.btnProjectErstellen);
             this.Controls.Add(this.txtProjectBeschreibung);

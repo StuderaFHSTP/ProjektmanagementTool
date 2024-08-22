@@ -140,9 +140,9 @@
             // 
             // btnProjectDetailsEdit
             // 
-            this.btnProjectDetailsEdit.Location = new System.Drawing.Point(904, 33);
+            this.btnProjectDetailsEdit.Location = new System.Drawing.Point(904, 481);
             this.btnProjectDetailsEdit.Name = "btnProjectDetailsEdit";
-            this.btnProjectDetailsEdit.Size = new System.Drawing.Size(92, 23);
+            this.btnProjectDetailsEdit.Size = new System.Drawing.Size(90, 25);
             this.btnProjectDetailsEdit.TabIndex = 9;
             this.btnProjectDetailsEdit.Text = "Bearbeiten";
             this.btnProjectDetailsEdit.UseVisualStyleBackColor = true;
@@ -175,9 +175,9 @@
             // 
             // btnProjectDetailSave
             // 
-            this.btnProjectDetailSave.Location = new System.Drawing.Point(904, 33);
+            this.btnProjectDetailSave.Location = new System.Drawing.Point(904, 481);
             this.btnProjectDetailSave.Name = "btnProjectDetailSave";
-            this.btnProjectDetailSave.Size = new System.Drawing.Size(92, 32);
+            this.btnProjectDetailSave.Size = new System.Drawing.Size(90, 25);
             this.btnProjectDetailSave.TabIndex = 13;
             this.btnProjectDetailSave.Text = "Speichern";
             this.btnProjectDetailSave.UseVisualStyleBackColor = true;
@@ -199,7 +199,6 @@
             this.tableLayoutProjectDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutProjectDetails.Size = new System.Drawing.Size(954, 176);
             this.tableLayoutProjectDetails.TabIndex = 14;
-
             // 
             // lblTasks
             // 
@@ -226,7 +225,7 @@
             // 
             this.btnGoBack.Location = new System.Drawing.Point(42, 481);
             this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(75, 23);
+            this.btnGoBack.Size = new System.Drawing.Size(90, 25);
             this.btnGoBack.TabIndex = 17;
             this.btnGoBack.Text = "Zurück";
             this.btnGoBack.UseVisualStyleBackColor = true;
@@ -257,6 +256,7 @@
             this.Controls.Add(this.lblProjectName);
             this.MaximizeBox = false;
             this.Name = "ProjectDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProjectDetails";
             this.Load += new System.EventHandler(this.ProjectDetails_Load);
             this.ResumeLayout(false);
