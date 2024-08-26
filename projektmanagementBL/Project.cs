@@ -71,7 +71,6 @@ namespace projektmanagementBL
             this.projectOwner = projectOwner;
         }
 
-
         public void getAllTasks()
         {
             OrganizerPro organizerPro = new OrganizerPro();

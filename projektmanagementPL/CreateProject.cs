@@ -33,8 +33,7 @@ namespace projektmanagementPL
             this.Hide();
             ProjectDetails projectDetails = new ProjectDetails(project.ProjectID, loggedInUser);
             projectDetails.ShowDialog();
-            this.Close();
-            
+            this.Close();          
         }
 
         private void btnGoBack_Click(object sender, EventArgs e)

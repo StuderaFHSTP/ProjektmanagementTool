@@ -20,27 +20,21 @@ namespace projektmanagementPL
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //get all the data from the form
             string email = txtLoginEmail.Text;
             string password = txtLoginPW.Text;
 
-            //TODO ProjectOwnerID aus der Session holen
             OrganizerPro organizerPro = new OrganizerPro();
             User user=organizerPro.login(email,password);
 
-
             if(user!=null) {
-                //Ändern auf die detail seite des Projekts
                 this.Hide();
                 ProjectOverview projectOverview = new ProjectOverview(user);
                 projectOverview.ShowDialog();
                 this.Close();
-
             }else
             {
                 lblError.Visible= true;
             }
-            
         }
 
         private void btnGoToRegister_Click(object sender, EventArgs e)
@@ -50,7 +44,6 @@ namespace projektmanagementPL
             register.ShowDialog();
             this.Close();
         }
-
 
     }
 }

@@ -14,7 +14,6 @@ namespace projektmanagementPL
 {
     public partial class TaskComponent : UserControl
     {
-
         private projektmanagementBL.Task myTask { get; set; }
         private User loggedInUser;
         private Project project;
@@ -36,10 +35,6 @@ namespace projektmanagementPL
 
         private void createStandardLayout()
         {
-
-           
-
-
             if (tableLayoutPanelTask.ColumnCount != 5)
             {
                 tableLayoutPanelTask.ColumnCount = 5;
@@ -233,9 +228,6 @@ namespace projektmanagementPL
             tableLayoutPanelTask.Controls.Add(delete);
         }
 
-        
-
-
         private void btnTaskDetails_Click(object sender, EventArgs e)
         {   
             Console.WriteLine("Details Button Clicked");
@@ -301,12 +293,8 @@ namespace projektmanagementPL
         {
             OrganizerPro organizerPro = new OrganizerPro();
             organizerPro.deleteTask(myTask.TaskID);
-            TaskSaved?.Invoke(this, EventArgs.Empty);
-
-            
+            TaskSaved?.Invoke(this, EventArgs.Empty);  
             
         }
     }
-
-    
 }

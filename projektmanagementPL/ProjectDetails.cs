@@ -49,54 +49,16 @@ namespace projektmanagementPL
                 newTask.TaskSaved += TaskComponent_TaskSaved;
                 taskComponentList.Add(newTask);     
                 tableLayoutProjectDetails.Controls.Add(newTask);
-                /*Label taskName = new Label();
-                taskName.Text = task.TaskName;
-                taskName.AutoSize = true;
-                taskName.Margin = Padding.Empty;
-                Label deadline = new Label();
-                deadline.Text = task.Deadline.ToString("dd.MM.yyyy");
-                deadline.AutoSize = true;
-                deadline.Margin = Padding.Empty;
-                Label assignedUser = new Label();
-                assignedUser.Text = task.getTaskAssignedUserName();
-                assignedUser.AutoSize = true;
-                assignedUser.Margin = Padding.Empty;
-                Button details = new Button();
-                details.Text = "Details";
-                details.Margin = Padding.Empty;
-                Button edit = new Button();
-                edit.Text = "Bearbeiten";
-                edit.Margin = Padding.Empty;
-                if (project.ProjectOwner == loggedInUser.UserID)
-                {
-                    edit.Visible = true;
-                    tableLayoutProjectDetails.ColumnCount = 5;
-                } else {
-                    edit.Visible = false;
-                }
-                tableLayoutProjectDetails.Controls.Add(taskName);
-                tableLayoutProjectDetails.Controls.Add(deadline);
-                tableLayoutProjectDetails.Controls.Add(assignedUser);
-                tableLayoutProjectDetails.Controls.Add(details);
-                tableLayoutProjectDetails.Controls.Add(edit);*/
-            }
-            //TODO: Task details anzeigen
-            //TODO: Task editieren
-            
-            
+            }          
         }
 
         private void TaskComponent_TaskSaved(object sender, EventArgs e)
         {
-            // Laden Sie die ProjectDetails-Seite neu
             ProjectDetails_Load(sender, e);
         }
 
-
-
         private void btnProjectDetailsEdit_Click(object sender, EventArgs e)
         {
-            
             lblProjectName.Visible = false;
             txtEditprojectName.Visible = true;
             txtEditprojectName.Text = lblProjectName.Text;
@@ -114,7 +76,6 @@ namespace projektmanagementPL
             btnProjectDetailsEdit.Visible = false;
             btnProjectDetailSave.Visible = true;
             btnCreateTask.Enabled = false;
-
         }
 
         private void btnProjectDetailSave_Click(object sender, EventArgs e)
@@ -142,7 +103,6 @@ namespace projektmanagementPL
             btnProjectDetailsEdit.Visible = true;
             btnCreateTask.Enabled = true;
         }
-
         private void btnCreateTask_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -157,9 +117,6 @@ namespace projektmanagementPL
             ProjectOverview projectOverview = new ProjectOverview(loggedInUser);
             projectOverview.ShowDialog();
             this.Close();
-
         }
-
-
     }
 }

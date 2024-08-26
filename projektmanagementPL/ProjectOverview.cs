@@ -49,9 +49,7 @@ namespace projektmanagementPL
 
                 tableLayoutProjectOverview.Controls.Add(lblProjectName);
                 tableLayoutProjectOverview.Controls.Add(btnDetails);
-                //TODO: Projekte nur für das passende department anzeigen
             }
-
         }
 
         private void btnProjectOverviewCreate_Click(object sender, EventArgs e)

@@ -20,7 +20,6 @@ namespace projektmanagementPL
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            //get all the data from the form
             string name = txtName.Text;
             string surname = txtSurname.Text;
             string email = txtEmail.Text;
@@ -28,14 +27,10 @@ namespace projektmanagementPL
             String department = ddAbteilung.Text;
             String role = ddRolle.Text;
             
-
-            //TODO ProjectOwnerID aus der Session holen
             OrganizerPro organizerPro = new OrganizerPro();
 
             bool createdUser=organizerPro.newUser(name, surname, email, password, role, department);
-            
 
-            //Ändern auf die detail seite des Projekts
             if(createdUser)
             {
                 User user = organizerPro.login(email, password);
@@ -49,7 +44,5 @@ namespace projektmanagementPL
             }
             
         }
-
-
     }
 }

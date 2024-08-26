@@ -12,11 +12,8 @@ namespace projektmanagementBL
 {
     public class OrganizerPro
     {
-        //Connection String muss geändert werden abhängig von wer die Datenbank lokal speichert
-        //string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
-
-
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\fabia\\FH\\Software Architecture\\Projekt\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
+        //string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Dokumente\\FH STP\\4. Semester\\Software Architektur\\Projekte\\ProjektmanagementTool\\projektmanagementDL\\projektmanagementDB.mdf\";Integrated Security=True;Connect Timeout=5";
 
         public SqlConnection GetConnection()
         {
@@ -58,7 +55,7 @@ namespace projektmanagementBL
             }
         }
 
-        public bool newUser(String name, String surname, String email, String password, String role, String deparment)
+        public bool newUser(string name, string surname, string email, string password, string role, string deparment)
         {
             string userID = Guid.NewGuid().ToString("N").Substring(0, 30);
             try
@@ -81,8 +78,7 @@ namespace projektmanagementBL
             {
                 Console.WriteLine(e.Message);
                 return false;
-            }
-            
+            }        
         }
         public string getUserID(string surname)
         {
@@ -116,18 +112,6 @@ namespace projektmanagementBL
             cmd.Parameters.AddWithValue("@assignedUser", task.AssignedUser);
             cmd.ExecuteNonQuery();
             conn.Close();
-        }
-
-        public void showTaskDetails(string taskID)
-        {
-
-            SqlConnection conn = GetConnection();
-            string query = "SELECT * FROM Task WHERE taskID = @taskID";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@taskID", taskID);
-            SqlDataReader reader = cmd.ExecuteReader();
-            //TODO : Ansicht für Task Details
-
         }
 
         public void enterTaskProgress(string taskID, int status)
@@ -172,7 +156,6 @@ namespace projektmanagementBL
             cmd.ExecuteNonQuery();
             conn.Close();   
             return project;
-
         }
 
         public void deleteTask(string taskID)

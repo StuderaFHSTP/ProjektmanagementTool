@@ -53,7 +53,7 @@ namespace projektmanagementBL
 
         internal User() { }
 
-        public User(String userID, String name, String surname, String email, String role, String department, String projectID)
+        public User(string userID, string name, string surname, string email, string role, string department, string projectID)
         {
             this.userID = userID;
             this.name = name;

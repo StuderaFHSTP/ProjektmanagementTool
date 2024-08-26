@@ -77,7 +77,6 @@ namespace projektmanagementBL
             string assignedUserName = reader["name"].ToString() + " " +reader["surname"].ToString();
             conn.Close();
             return assignedUserName;
-            
         }
     }
 }
